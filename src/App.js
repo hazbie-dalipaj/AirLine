@@ -1,31 +1,28 @@
 import React, {Component} from 'react';
 import './App.css';
-import {company} from './company';
-import CardList from './component/card.list/card.list';
-import Search from './component/search/search';
 import Header from './component/header/header';
+import{Route, Switch} from 'react-router-dom';
+import Flights from './component/flights/flights';
+import Contact from './component/contact/contact';
+import Signin from './component/signin/signin';
+import Register from './component/register/register';
+import HomePage from './component/hompage/hom.page';
+import Checkin from './component/checkin/check.in';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state={
-      company: company,
-      searchfield:''
-    }
-  }
-  onSearchChange = (event) => {
-    this.setState({searchfield: event.target.value})
-  }
   render() {
-    const filteredCompany = this.state.company.filter(company => {
-      return company.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
-    })
     return (
     <div className="App">
-       <Header />
-      <h1 className='title'>Airline Company</h1>     
-      <Search searchChange={this.onSearchChange} />
-      <CardList company={filteredCompany}/>
+      <Header />
+      <Switch>  
+        <Route exact path='/' component={HomePage} />      
+        <Route path='/flights' component={Flights} />
+        <Route path='/contact' component={Contact} />
+        <Route path='/signin' component={Signin} />
+        <Route path='/register' component={Register} />
+        <Route path='/checkin' component={Checkin} />
+      </Switch>
+      
     </div>
   );
   }  
