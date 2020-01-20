@@ -21,7 +21,7 @@ const DestinationForm = () => {
     return(
         <form className='bord'>
             <h1 className='tc'>What is your destination?</h1>
-             <div>
+             <>
       <FormControl component="fieldset" className={classes.formControl}>
         <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
           <FormControlLabel value="female" control={<Radio />} label="Return" />
@@ -30,9 +30,9 @@ const DestinationForm = () => {
         </RadioGroup>
       </FormControl>
       
-    </div>
+    </>
             
-            <div>
+            <>
                 <br />
                 From 
                 <select name="from">
@@ -52,7 +52,7 @@ const DestinationForm = () => {
                     <option value="italy">Italy</option>
                     <option value="portugal">Portugal</option>
                 </select>
-            </div>
+            </>
             
             
         </form>

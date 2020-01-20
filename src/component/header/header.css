@@ -15,4 +15,11 @@
     padding: 10px 15px;
     cursor: pointer;
 }
-  
+
+.header-button{
+        background-color: lightskyblue;
+        color: white;
+        padding: 14px 20px;
+        cursor: pointer;
+        width: 100%;
+}

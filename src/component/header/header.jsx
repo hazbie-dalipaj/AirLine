@@ -1,28 +1,37 @@
 import React from 'react';
 import './header.css'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {auth} from '../../firebase/firebase.utils';
 
-const Header = () => {
+const Header = ({currentUser}) => {
   return(
     <div className='header'>
       <div className='options'>
 
-        <Link className='option' to='/'>
-          Home Page
+      <Link className='option' to='/'>
+          <button className='header-button'>Home Page</button>
           </Link>
 
         <Link className='option' to='/flights'>
-          Flights
+          <button className='header-button'>Flights</button>
         </Link>
 
-        <Link className='option' to='/contact'>
-          Contact
+        <Link className='option' to='/test'>
+          <button className='header-button'>Test</button>
         </Link>
 
+        {currentUser ? (
+		<div className='option' onClick={() => auth.signOut()}>
+		<button className='header-button'>Sign Out</button>
+		</div>
+		):(		
           <Link className='option' to='/signin' >
-            Sign In
-          </Link>           
+            <button className='header-button'>Log in</button>
+          </Link>
+		)} 
+          
       </div>
     </div>
   );}
+
 export default Header;
