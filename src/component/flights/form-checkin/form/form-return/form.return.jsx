@@ -20,13 +20,14 @@ const FormReturn = (props) => {
 
   const inputLabel = useRef(null);
   const [, setLabelWidth] = useState(0);
+
   useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
-  
+
   const handleChange = name => event => {
     const {onFromChange, onToChange} = props;
-    const {onDepartChange, onReturnChange} = props;
+    const {onDepartureChange, onReturnChange} = props;
     const {onCabineChange} = props;
     const value = event.target.value;
 
@@ -40,7 +41,7 @@ const FormReturn = (props) => {
         break;
       }
       case 'Departure':{
-        onDepartChange(value);
+        onDepartureChange(value);
         break;
       }
       case 'Return':{
@@ -69,13 +70,13 @@ const FormReturn = (props) => {
             name: 'FromCountry'            
           }}
         >
-          <option id={0} >None</option>
-          <option id={1} >Canada</option>
-          <option id={2} >China</option>
-          <option id={3} >England</option>
-          <option id={4} >Germany</option>
-          <option id={5} >Italy</option>
-          <option id={6} >Portugal</option>
+          <option >None</option>
+          <option >Canada</option>
+          <option >China</option>
+          <option >England</option>
+          <option >Germany</option>
+          <option >Italy</option>
+          <option >Portugal</option>
         </NativeSelect>
       </FormControl>
       
@@ -88,13 +89,13 @@ const FormReturn = (props) => {
             name: 'ToCountry'            
           }}
         >
-          <option id={0} >None</option>
-          <option id={1} >Canada</option>
-          <option id={2} >China</option>
-          <option id={3} >England</option>
-          <option id={4} >Germany</option>
-          <option id={5} >Italy</option>
-          <option id={6} >Portugal</option>
+          <option >None</option>
+          <option >Canada</option>
+          <option >China</option>
+          <option >England</option>
+          <option >Germany</option>
+          <option >Italy</option>
+          <option >Portugal</option>
         </NativeSelect>
       </FormControl>
 
@@ -112,10 +113,11 @@ const FormReturn = (props) => {
           shrink: true,
         }}
       />
-    </FormControl>
+      </FormControl>
     <FormControl className={useStyles().formControl}>
       <FormHelperText ref={inputLabel}>Return</FormHelperText>
       <TextField
+      
       value={state.Return}
       onChange={handleChange('Return')}
       inputProps={{

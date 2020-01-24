@@ -46,7 +46,8 @@ class App extends React.Component {
   }
   componentWillUnmount(){
 		this.unsubscribeFormAuth();
-	}
+  }
+
   render() {
     return (
     <div className="App">
@@ -59,7 +60,7 @@ class App extends React.Component {
         <Route path='/register' component={Register} />  
         <Route path='/users-data' component={DetailsUsers} />
         
-        <Route path='/search-flights/:param1/:param2/:param3' render={({match}) =>{
+        <Route path='/search-flights/:param1/:param2/:param3/:param4' render={({match}) =>{
           const pathParams = {};
             Object.values(match.params).forEach((param)=>{
               const splitedParam = param.split(':');
@@ -70,6 +71,7 @@ class App extends React.Component {
             <FlightsPage 
               from={pathParams.from}
               to={pathParams.to}
+              departure={pathParams.departure}
               cabine={pathParams.cabine}
             />
           );

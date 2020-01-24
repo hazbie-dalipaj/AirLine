@@ -13,23 +13,23 @@ const FormCheckIn = () => {
   const [value, setValue] = useState('return');
   const [from, setFrom] = useState(null);
   const [to, setTo] = useState(null);
-  const [depart, setDepart] = useState(null);
+  const [departure, setDeparture] = useState(null);
   const [retur, setReturn] = useState(null);
   const [cabine, setCabine] = useState(null);
 
   const handleChange = event => {
     setValue(event.target.value);
   };
-
   console.log('The state is: ', value);
 
   console.log(`the from value ${from}`);
   console.log(`the to value ${to}`);
-  console.log(`the date ${depart}`);
-  console.log(`the date is ${retur}`);
+  console.log(`the depart date ${departure}`);
+  console.log(`the return date is ${retur}`);
   console.log(`the cabine is ${cabine}`);
 
-  const url = `/search-flights${from ? `/from:${from}`: ''}${to ? `/to:${to}`: ''}${cabine ? `/cabine:${cabine}`: ''}`;
+  const url = `/search-flights${from ? `/from:${from}`: ''}${to ? `/to:${to}`: ''}${departure ? `/departure:${departure}`: ''}${cabine ? `/cabine:${cabine}`: ''}`;
+
   return(
     <>     
       <form className='form'>
@@ -50,14 +50,14 @@ const FormCheckIn = () => {
         {value=== 'return' && <FormReturn 
           onFromChange={(from)=> setFrom(from)} 
           onToChange={(to)=> setTo(to)} 
-          onDepartChange={(depart)=> setDepart(depart)} 
+          onDepartureChange={(departure)=>setDeparture(departure)} 
           onReturnChange={(retur)=>setReturn(retur)} 
           onCabineChange={(cabine)=>setCabine(cabine)} />}
 
         {value === 'oneway' && <FormOneWay 
           onFromChange={(from)=> setFrom(from)} 
           onToChange={(to)=> setTo(to)} 
-          onDepartChange={(depart)=> setDepart(depart)} 
+          onDepartureChange={(departure)=> setDeparture(departure)} 
           onCabineChange={(cabine)=>setCabine(cabine)} />}
 
         <Link to={url}><button className='search-flights'>Search Flights</button></Link>

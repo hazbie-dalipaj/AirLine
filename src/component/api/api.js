@@ -1,4 +1,4 @@
-import FLIGHTS from './flights_data';
+import FLIGHTS from '../collection-flights/flights_data';
 import MOCK_FLIGHTS from './mock_flights';
 import COUNTRY from './country';
 

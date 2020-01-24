@@ -77,7 +77,7 @@ const DetailsUsers = () => {
                     onClick={handleNext}
                     className={classes.button}
                   >
-                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}                    
+                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}                  
                   </Button>
                 </>
               </div>

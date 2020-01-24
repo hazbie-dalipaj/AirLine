@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
@@ -18,16 +18,16 @@ const FormOneWay = (props) => {
     name: '',
   });
 
-  const inputLabel = React.useRef(null);
-  const [, setLabelWidth] = React.useState(0);
+  const inputLabel = useRef(null);
+  const [, setLabelWidth] = useState(0);
   
-  React.useEffect(() => {
+  useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
 
   const handleChange = name => event => {
     const {onFromChange, onToChange} = props;
-    const {onDepartChange} = props;
+    const {onDepartureChange} = props;
     const {onCabineChange} = props;
     const value = event.target.value;
 
@@ -40,17 +40,15 @@ const FormOneWay = (props) => {
         onToChange(value);
         break;
       }
+      case 'Departure':{
+        onDepartureChange(value);
+        break;
+      }
       case 'cabine':{
         onCabineChange(value);
         break;
       }
-    }
-    
-    switch(name){
-      case 'Departure':{
-        onDepartChange(value);
-        break;
-      }
+      
       default:
     }
 
@@ -62,7 +60,6 @@ const FormOneWay = (props) => {
 
     return(
         <div className='return'>
-
         <FormControl className={useStyles().formControl}>
         <FormHelperText ref={inputLabel}>From</FormHelperText>
         <NativeSelect
