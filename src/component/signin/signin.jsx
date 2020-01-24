@@ -37,7 +37,7 @@ class Signin extends Component{
                 <br /> <br />
                 <form className='bord' onSubmit={this.handleSubmit}>
                 <div className='imgcontainer'>
-                    <img className='avantar' alt='' src='https://bgp-palembang.com/assets/img/avatar/avatar-2.png'  />
+                    <img className='avantar' alt='' src='https://cdn2.iconfinder.com/data/icons/audio-16/96/user_avatar_profile_login_button_account_member-512.png'  />
                 </div>
                 <div className='container'>
                     <label>Email</label>

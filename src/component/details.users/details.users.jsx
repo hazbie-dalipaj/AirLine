@@ -1,31 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import PersonalDetail from './personal.detail';
 import Luggage from './luggage';
 import Payment from '../flights/payment/payment';
 
 const useStyles = makeStyles(theme => ({
-
   button: {
     marginTop: theme.spacing(1),
     marginRight: theme.spacing(1),
-  },
-  actionsContainer: {
-    marginBottom: theme.spacing(2),
-  },
-  resetContainer: {
-    padding: theme.spacing(3),
-  },
+  }
 }));
 
 const DetailsUsers = () => {
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
 
   function getSteps() {
     return ['Complete your details', 'Complete your luggage', 'Payment'];
@@ -33,7 +27,7 @@ const DetailsUsers = () => {
 
   function getStepContent (step) {
     switch (step) {
-      case 0: return <PersonalDetail />        
+      case 0: return <PersonalDetail onNameChange={(name)=> setName(name)} onEmailChange={(email)=> setEmail(email)} />        
       case 1: return <Luggage/>
       case 2: return <Payment/>
       default:
@@ -46,6 +40,8 @@ const DetailsUsers = () => {
 
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
+    console.log(`name is ${name}`);
+    console.log(`email is ${email}`);
   };
 
   const handleBack = () => {
@@ -61,7 +57,6 @@ const DetailsUsers = () => {
             <StepLabel>{label}</StepLabel>
             <StepContent>
               <>{getStepContent(index)}</>
-              <div className={classes.actionsContainer}>
                 <>
                   <Button
                     disabled={activeStep === 0}
@@ -80,17 +75,14 @@ const DetailsUsers = () => {
                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}                  
                   </Button>
                 </>
-              </div>
             </StepContent>
           </Step>
         ))}
       </Stepper>
       {activeStep === steps.length && (
-        <Paper square elevation={0} className={classes.resetContainer}>
           <Typography>
             Your payment is complete!
             Nice Trip!</Typography>
-        </Paper>  
       )}
     </div>
   );
