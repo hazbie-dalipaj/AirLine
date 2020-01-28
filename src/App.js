@@ -9,6 +9,7 @@ import HomePage from './component/hompage/hom.page';
 import {auth, createUserProfileDocument} from './firebase/firebase.utils';
 import DetailsUsers from './component/details.users/details.users';
 import FlightsPage from './component/collection-flights/flights.page';
+import FlightsPageReturn from './component/collection-flights/flights.page.return';
 import CheckoutPage from './component/collection-flights/example'
 
 class App extends React.Component {
@@ -60,7 +61,7 @@ class App extends React.Component {
         <Route path='/register' component={Register} />  
         <Route path='/users-data' component={DetailsUsers} />
         
-        <Route path='/search-flights/:param1/:param2/:param3/:param4' render={({match}) =>{
+        <Route path='/search-one-way-flights/:param1/:param2/:param3/:param4' render={({match}) =>{
           const pathParams = {};
             Object.values(match.params).forEach((param)=>{
               const splitedParam = param.split(':');
@@ -68,7 +69,7 @@ class App extends React.Component {
             });
 
           return (
-            <FlightsPage 
+            <FlightsPage
               from={pathParams.from}
               to={pathParams.to}
               departure={pathParams.departure}
@@ -76,6 +77,26 @@ class App extends React.Component {
             />
           );
         } } />
+
+
+        <Route path='/search-return-flights/:parametr1/:parametr2/:parametr3/:parametr4/:parametr5' render={({match}) =>{
+          const pathParams = {};
+            Object.values(match.params).forEach((param)=>{
+              const splitedParam = param.split(':');
+              pathParams[splitedParam[0]] = splitedParam[1];
+            });
+
+          return (
+            <FlightsPageReturn 
+              from={pathParams.from}
+              to={pathParams.to}
+              departure={pathParams.departure}
+              retur={pathParams.retur}
+              cabine={pathParams.cabine}
+            />
+          );
+        } } />
+
         <Route path='/test' component={CheckoutPage} />
       </Switch>
       

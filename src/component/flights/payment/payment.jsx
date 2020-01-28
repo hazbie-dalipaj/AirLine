@@ -13,7 +13,6 @@ const Payment = ({price}) => {
         <StripeCheckout 
         label = 'Pay Now'
         name = 'AirLine'
-        description={`Your total is ${price}`}
         amount = {priceForStripe}
         panelLabel='Paw Now'
         token={onToken}

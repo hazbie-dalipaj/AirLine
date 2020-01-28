@@ -54,7 +54,6 @@ class Signin extends Component{
                         <Link to='/'><img className='em-fa' alt='' 
 						src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png'
 						onClick={signInWithGoogle} /></Link>
-                        
                         <br /><br />
 
                     <span>Don't have an account? Click <Link to='/register'>here</Link></span>

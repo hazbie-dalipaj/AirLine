@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -7,13 +7,11 @@ import LuggageYes from './luggage.yes';
 import LuggageNo from './luggage.no';
 
 const Luggage = () => {
-  const [value, setValue] = React.useState('yes');
+  const [value, setValue] = useState('yes');
 
   const handleChange = event => {
     setValue(event.target.value);
   };
-
-  console.log('The state is: ', value);
   return(
     <>     
       <form className='bord'>

@@ -69,13 +69,13 @@ const FormOneWay = (props) => {
             name: 'FromCountry'            
           }}
         >
-          <option >None</option>
-          <option >Canada</option>
-          <option >China</option>
-          <option >England</option>
-          <option >Germany</option>
-          <option >Italy</option>
-          <option >Portugal</option>
+          <option>None</option>
+          <option>Canada</option>
+          <option>China</option>
+          <option>England</option>
+          <option>Germany</option>
+          <option>Italy</option>
+          <option>Portugal</option>
         </NativeSelect>
       </FormControl>
       
@@ -88,13 +88,13 @@ const FormOneWay = (props) => {
             name: 'ToCountry'            
           }}
         >
-          <option >None</option>
-          <option >Canada</option>
-          <option >China</option>
-          <option >England</option>
-          <option >Germany</option>
-          <option >Italy</option>
-          <option >Portugal</option>
+          <option>None</option>
+          <option>Canada</option>
+          <option>China</option>
+          <option>England</option>
+          <option>Germany</option>
+          <option>Italy</option>
+          <option>Portugal</option>
         </NativeSelect>
       </FormControl>
 
@@ -135,11 +135,11 @@ const FormOneWay = (props) => {
             name: 'cabine'            
           }}
         >
-          <option >None</option>
-          <option >Economy</option>
-          <option >Premium Economy</option>
-          <option >Business Class</option>
-          <option >First Class</option>
+          <option>None</option>
+          <option>Economy</option>
+          <option>Premium Economy</option>
+          <option>Business Class</option>
+          <option>First Class</option>
         </NativeSelect>
       </FormControl>
         </div>

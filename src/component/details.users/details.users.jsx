@@ -28,7 +28,7 @@ const DetailsUsers = () => {
   function getStepContent (step) {
     switch (step) {
       case 0: return <PersonalDetail onNameChange={(name)=> setName(name)} onEmailChange={(email)=> setEmail(email)} />        
-      case 1: return <Luggage/>
+      case 1: return <Luggage />
       case 2: return <Payment/>
       default:
     }    
@@ -42,6 +42,7 @@ const DetailsUsers = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
     console.log(`name is ${name}`);
     console.log(`email is ${email}`);
+ 
   };
 
   const handleBack = () => {
@@ -62,17 +63,17 @@ const DetailsUsers = () => {
                     disabled={activeStep === 0}
                     onClick={handleBack}
                     className={classes.button}
-                  >
-                    Back
-                  </Button>
+                  > Back
+                  </Button> 
+
                   <Button
                     variant="contained"
                     value='next'
                     color="primary"
+                    disabled={!name || !email}
                     onClick={handleNext}
                     className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}                  
+                  > {activeStep === steps.length - 1 ? 'Finish' : 'Next'}                  
                   </Button>
                 </>
             </StepContent>
@@ -80,10 +81,7 @@ const DetailsUsers = () => {
         ))}
       </Stepper>
       {activeStep === steps.length && (
-          <Typography>
-            Your payment is complete!
-            Nice Trip!</Typography>
-      )}
+          <Typography> Your payment is complete! Nice Trip!</Typography>)}
     </div>
   );
 }

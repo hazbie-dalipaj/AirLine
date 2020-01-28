@@ -7,14 +7,13 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import {Link} from 'react-router-dom';
-//import FlightsPage from '../../collection-flights/flights.page';
 
 const FormCheckIn = () => {
   const [value, setValue] = useState('return');
   const [from, setFrom] = useState(null);
   const [to, setTo] = useState(null);
   const [departure, setDeparture] = useState(null);
-  const [retur, setReturn] = useState(null);
+  const [retur, setRetur] = useState(null);
   const [cabine, setCabine] = useState(null);
 
   const handleChange = event => {
@@ -28,7 +27,8 @@ const FormCheckIn = () => {
   console.log(`the return date is ${retur}`);
   console.log(`the cabine is ${cabine}`);
 
-  const url = `/search-flights${from ? `/from:${from}`: ''}${to ? `/to:${to}`: ''}${departure ? `/departure:${departure}`: ''}${cabine ? `/cabine:${cabine}`: ''}`;
+  const url = `/search-one-way-flights${from ? `/from:${from}`: ''}${to ? `/to:${to}`: ''}${departure ? `/departure:${departure}`: ''}${cabine ? `/cabine:${cabine}`: ''}`;
+  const url2 = `/search-return-flights${from ? `/from:${from}`: ''}${to ? `/to:${to}`: ''}${departure ? `/departure:${departure}`: ''}${retur ? `/retur:${retur}`: ''}${cabine ? `/cabine:${cabine}`: ''}`;
 
   return(
     <>     
@@ -51,16 +51,17 @@ const FormCheckIn = () => {
           onFromChange={(from)=> setFrom(from)} 
           onToChange={(to)=> setTo(to)} 
           onDepartureChange={(departure)=>setDeparture(departure)} 
-          onReturnChange={(retur)=>setReturn(retur)} 
-          onCabineChange={(cabine)=>setCabine(cabine)} />}
+          onReturnChange={(retur)=>setRetur(retur)} 
+          onCabineChange={(cabine)=>setCabine(cabine)} /> || <Link to={url}><button className='search-flights'>Search Flights on</button></Link>}
 
         {value === 'oneway' && <FormOneWay 
           onFromChange={(from)=> setFrom(from)} 
           onToChange={(to)=> setTo(to)} 
           onDepartureChange={(departure)=> setDeparture(departure)} 
-          onCabineChange={(cabine)=>setCabine(cabine)} />}
+          onCabineChange={(cabine)=>setCabine(cabine)} /> || <Link to={url2}><button className='search-flights'>Search Flights Ret</button></Link>}
 
-        <Link to={url}><button className='search-flights'>Search Flights</button></Link>
+        {/*<Link to={url}><button className='search-flights'>Search Flights</button></Link>
+        <Link to={url2}><button className='search-flights'>Search Flights Ret</button></Link>*/}
         {/*<Link to='/search-flights'><button className='search-flights'>Search Flights</button></Link>*/}
       </form>
       

@@ -1,10 +1,10 @@
 import React from 'react';
-import SelectParam from './select.param';
+import SelectParam from '../../../../collection-flights/select.param';
 
-const flightDataParameters = ['From', 'To', 'Departure', 'Dep Time', 'Arrival', 'Arr Time', 'Cabine', 'Price'];
-const availableRoutesKeys = ['from', 'to', 'departure', 'timed', 'arrival', 'timea', 'cabine', 'price']
+const flightDataParameters = ['From', 'To', 'Departure', 'Return', 'Cabine', 'Price'];
+const availableRoutesKeys = ['from', 'to', 'departure', 'retur', 'cabine', 'price']
 
-const FlightDataParameters = ({availableRoutes}) => (
+const FlightDataParametersReturn = ({availableRoutes}) => (
     <>
         {flightDataParameters.map((param, i) => {
             return (
@@ -22,4 +22,4 @@ const FlightDataParameters = ({availableRoutes}) => (
     </>
 )
 
-export default FlightDataParameters;
+export default FlightDataParametersReturn;
