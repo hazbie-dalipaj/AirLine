@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import FLIGHTS_DATA from './flights_data';
-import FlightsDataPreview from './flights-data-preview';
+import FlightsDataPreview from '../flights/form-checkin/form/form-oneway/flights-data-preview';
 import './flights_page.scss';
 
 const FlightsPage = ({from, to, departure, cabine}) => {

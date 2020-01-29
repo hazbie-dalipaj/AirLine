@@ -17,7 +17,7 @@ class PageFlights extends Component {
                     <DirectoryMenu />                
                 </div>
                 
-                <div className='flights'>
+                <div className='map-flights'>
                     <h1 className='title'>See the map</h1>
                     <SimpleMap />
                 </div>

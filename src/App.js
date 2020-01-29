@@ -10,7 +10,7 @@ import {auth, createUserProfileDocument} from './firebase/firebase.utils';
 import DetailsUsers from './component/details.users/details.users';
 import FlightsPage from './component/collection-flights/flights.page';
 import FlightsPageReturn from './component/collection-flights/flights.page.return';
-import CheckoutPage from './component/collection-flights/example'
+import CheckoutPage from './component/collection-flights/example';
 
 class App extends React.Component {
 	constructor(){

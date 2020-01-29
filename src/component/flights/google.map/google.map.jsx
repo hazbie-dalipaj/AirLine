@@ -1,64 +1,29 @@
-import React, { Component } from "react";
-import { compose } from "recompose";
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow} from "react-google-maps";
-import './google.map.css';
-
-const MapWithAMarker = compose(withScriptjs, withGoogleMap)(props => {
-
-  return (
-    <GoogleMap defaultZoom={8} defaultCenter={{ lat: 29.5, lng: -95 }}>
-      {props.markers.map(marker => {
-        const onClick = props.onClick.bind(this, marker)
-        return (
-          <Marker
-            key={marker.id}
-            onClick={onClick}
-            position={{ lat: marker.latitude, lng: marker.longitude }}
-          >
-            {props.selectedMarker === marker &&
-              <InfoWindow>
-                <div>
-                  {marker.shelter}
-                </div>
-              </InfoWindow>}
-            }
-          </Marker>
-        )
-      })}
-    </GoogleMap>
-  )
-})
-
-export default class ShelterMap extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      shelters: [],
-      selectedMarker: false
-    }
-  }
-  componentDidMount() {
-    fetch("https://api.harveyneeds.org/api/v1/shelters?limit=20")
-      .then(r => r.json())
-      .then(data => {
-        this.setState({ shelters: data.shelters })
-      })
-  }
-  handleClick = (marker, event) => {
-    // console.log({ marker })
-    this.setState({ selectedMarker: marker })
-  }
+import React, { Component } from 'react';
+import GoogleMapReact from 'google-map-react';
+ 
+const AnyReactComponent = ({ text }) => <div onClick={() => console.log('Click on marker!', text)}>{text}</div>; 
+class SimpleMap extends Component {
+  static defaultProps = {
+    center: {
+      lat: 37.9833333,
+      lng: 23.7333333
+    },
+    zoom: 1
+  };
+ 
   render() {
     return (
-      <MapWithAMarker
-        selectedMarker={this.state.selectedMarker}
-        markers={this.state.shelters}
-        onClick={this.handleClick}
-        googleMapURL='https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places'
-        loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `400px` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-      />
-    )
+      <div className='map' style={{ height: '75vh', width: '203vh'}}>
+        <GoogleMapReact bootstrapURLKeys={{ key: "AIzaSyBFpyyS_1uLzPdsoSY2rPDT9-E8moNm3ew"}} defaultCenter={this.props.center} defaultZoom={this.props.zoom}>
+          <AnyReactComponent lat={55.585901} lng={-105.750596} text="Marker Canada" />
+          <AnyReactComponent lat={35.8600198} lng={104.165802} text="Marker China" />
+          <AnyReactComponent lat={52.8536597} lng={-1.0825582} text="Marker England" />
+          <AnyReactComponent lat={50.6275416} lng={9.9584503} text="Marker Germany" />
+          <AnyReactComponent lat={42.7631902} lng={12.2515222} text="Marker Italy" />
+          <AnyReactComponent lat={39.6584701} lng={-8.2444602} text="Marker Portugal" />          
+        </GoogleMapReact>
+      </div>
+    );
   }
-}
+} 
+export default SimpleMap;

@@ -1,17 +1,13 @@
-.cent{
-  text-align: center;
-}
 .bord{
   border: 10px solid #f1f1f1;
   padding: 2px 150px;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 10px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+  border: 1px solid #f1f1f1;
 }
 
 

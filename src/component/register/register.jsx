@@ -84,6 +84,7 @@ class Register extends React.Component{
                     <FormInput type='password' placeholder='enter your password' name='repassword' value={this.state.repassword} onChange={this.handleChange} required />
 
                     <button type="submit">Register</button>
+                    <br></br><br></br>
 
                     <span>Have an account? Click <Link to='/signin'>here</Link></span>
                 </div>

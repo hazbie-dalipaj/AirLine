@@ -51,7 +51,7 @@ class Signin extends Component{
                     <span className='spn'>or continue with</span>
                     <br /><br />
 
-                        <Link to='/'><img className='em-fa' alt='' 
+                        <Link to='/'><img className='em' alt='' 
 						src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png'
 						onClick={signInWithGoogle} /></Link>
                         <br /><br />

@@ -3,9 +3,9 @@
 }
 .bord{
   border: 10px solid #f1f1f1;
-  width: 60%;
+  width: 50%;
   text-align: center;
-  background-color:white;
+  background-color: #F0FFFF;
   margin: 0 auto;
 }
 
@@ -14,14 +14,13 @@ input[type=email], input[type=password] {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+  border: 1px solid #f1f1f1;
 }
 button {
   background-color: lightskyblue;
   color: white;
   padding: 14px 20px;
-  width: 20%;
+  width: 22%;
 }
 
 button:hover {
@@ -35,10 +34,9 @@ button:hover {
   text-align: center;
 }
 img.avantar {
-  width: 10%;
-  border-radius: 50%;
+  width: 12%;
 }
 
-.em-fa{
-  width: 2%;
+.em{
+  width: 3.5%;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectParam from './select.param';
+import SelectParam from '../../../../collection-flights/select.param';
 
 const flightDataParameters = ['From', 'To', 'Departure', 'Dep Time', 'Arrival', 'Arr Time', 'Cabine', 'Price'];
 const availableRoutesKeys = ['from', 'to', 'departure', 'timed', 'arrival', 'timea', 'cabine', 'price']

@@ -1,16 +1,17 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {company} from '../../company';
 import CardList from '../card.list/card.list';
 import Search from '../search/search';
 
 class HomePage extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
           company: company,
           searchfield:''
         }
       }
+
       onSearchChange = (event) => {
         this.setState({searchfield: event.target.value})
       }
@@ -22,7 +23,7 @@ class HomePage extends Component{
             <div className="App">
                 <h1 className='title'>Airline Company</h1> 
                 <Search searchChange={this.onSearchChange} />
-                <CardList company={filteredCompany}/>
+                <CardList company={filteredCompany} />
             </div>
         )
     }

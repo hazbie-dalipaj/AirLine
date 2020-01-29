@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../collection-flights/flights-data-preview.scss';
+import '../form-oneway/flights-data-preview.scss';
 import FlightDataParametersReturn from './flights.data.parametrs.return';
 
 const FlightsDataPreviewReturn = ({country, routes, from, to, departure, retur,  cabine}) => {
