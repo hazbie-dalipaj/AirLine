@@ -1,6 +1,6 @@
 import React, {Component, useState} from 'react';
 import {company} from '../../company';
-import CardList from '../card.list/card.list';
+import CardList from '../card/card.list';
 import Search from '../search/search';
 
 class HomePage extends Component{
@@ -8,7 +8,7 @@ class HomePage extends Component{
         super(props);
         this.state={
           company: company,
-          searchfield:''
+          searchfield:'',
         }
       }
 
@@ -22,7 +22,7 @@ class HomePage extends Component{
         return(
             <div className="App">
                 <h1 className='title'>Airline Company</h1> 
-                <Search searchChange={this.onSearchChange} />
+                <Search searchChange={this.onSearchChange} />            
                 <CardList company={filteredCompany} />
             </div>
         )

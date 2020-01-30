@@ -1,20 +1,10 @@
 import React from 'react';
-
-class LuggageYes extends React.Component {
-    constructor(props){
-        super(props)
-        this.props={
-            name:'',
-            quantity:''
-        }
-    }
-    render(){
+const LuggageYes = () => {
         return(
-        <div>
-            <span>Please, complete your luggage for check in: </span>
-            <input type="number" name="quantity" min="1" max="5" required />
-        </div>
-        ) 
-    }         
+            <div>
+                <span>Please, complete your luggage for check in: </span>
+                <input type="number" name="quantity" min="1" max="5" required />
+            </div>
+        )               
 }
 export default LuggageYes;

@@ -20,21 +20,18 @@ const FormCheckIn = () => {
     setValue(event.target.value);
   };
   console.log('The state is: ', value);
-
   console.log(`the from value ${from}`);
   console.log(`the to value ${to}`);
   console.log(`the depart date ${departure}`);
   console.log(`the return date is ${retur}`);
   console.log(`the cabine is ${cabine}`);
-
   const url = `/search-one-way-flights${from ? `/from:${from}`: ''}${to ? `/to:${to}`: ''}${departure ? `/departure:${departure}`: ''}${cabine ? `/cabine:${cabine}`: ''}`;
   const url2 = `/search-return-flights${from ? `/from:${from}`: ''}${to ? `/to:${to}`: ''}${departure ? `/departure:${departure}`: ''}${retur ? `/retur:${retur}`: ''}${cabine ? `/cabine:${cabine}`: ''}`;
-
+ 
   return(
     <>     
       <form className='form'>
       <h2>What's your next destination ?</h2>
-
       <FormControl >
         <RadioGroup value={value} onChange={handleChange} >
           <FormControlLabel value="return" control={<Radio color="default" />} label="Return" />
@@ -46,7 +43,6 @@ const FormCheckIn = () => {
           <FormControlLabel value="oneway" control={<Radio color="default" />} label="OneWay" />
         </RadioGroup>
       </FormControl>
-
         {value=== 'return' && <FormReturn 
           onFromChange={(from)=> setFrom(from)} 
           onToChange={(to)=> setTo(to)} 
@@ -59,12 +55,7 @@ const FormCheckIn = () => {
           onToChange={(to)=> setTo(to)} 
           onDepartureChange={(departure)=> setDeparture(departure)} 
           onCabineChange={(cabine)=>setCabine(cabine)} /> || <Link to={url2}><button className='search-flights'>Search Flights Ret</button></Link>}
-
-        {/*<Link to={url}><button className='search-flights'>Search Flights</button></Link>
-        <Link to={url2}><button className='search-flights'>Search Flights Ret</button></Link>*/}
-        {/*<Link to='/search-flights'><button className='search-flights'>Search Flights</button></Link>*/}
-      </form>
-      
+      </form>      
     </>
   )
 }
