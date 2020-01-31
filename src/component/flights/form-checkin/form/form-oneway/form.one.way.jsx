@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const FormOneWay = (props) => {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     country: '',
     name: '',
   });

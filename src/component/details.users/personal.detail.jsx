@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import './personal.detail.css';
-import ControlDetail from './control.detail';
 
 class PersonalDetail extends Component {
     constructor(props){
@@ -48,8 +47,6 @@ class PersonalDetail extends Component {
             <li>Your name is: <a className='heading2'>{this.state.name}</a></li>
             <li>Your email is: <a className='heading2'>{this.state.email}</a></li>
             <li>Your phone is: <a className='heading2'>{this.state.phone}</a></li>
-            <ol className='heading'>Are correct your detail?</ol>
-            <ControlDetail />
             </>
         );
     }   

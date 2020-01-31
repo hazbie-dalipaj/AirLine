@@ -7,6 +7,7 @@ import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import PersonalDetail from './personal.detail';
+import ControlDetail from './control.detail';
 import Payment from '../flights/payment/payment';
 const useStyles = makeStyles(theme => ({
   button: {
@@ -18,13 +19,15 @@ const DetailsUsers = () => {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [phone, setPhone] = useState(null);
+  const [value, setValue] = useState('yes');
   function getSteps() {
-    return ['Complete your details', 'Payment'];
+    return ['Complete your details', 'Control you details', 'Payment'];
   }
   function getStepContent (step) {
     switch (step) {
-      case 0: return <PersonalDetail onNameChange={(name)=> setName(name)} onEmailChange={(email)=> setEmail(email)} onPhoneChange={(phone)=> setPhone(phone)} />        
-      case 1: return <Payment/>     
+      case 0: return <PersonalDetail onNameChange={(name)=> setName(name)} onEmailChange={(email)=> setEmail(email)} onPhoneChange={(phone)=> setPhone(phone)} />
+      case 1: return <ControlDetail onValueChange={(value) => setValue(value)} />        
+      case 2: return <Payment/>     
       default:
     }    
   }
@@ -37,6 +40,7 @@ const DetailsUsers = () => {
   console.log(`name is ${name}`);
   console.log(`email is ${email}`);
   console.log(`phone is ${phone}`);
+  console.log(`the state is ${value}`)
   const handleBack = () => {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   };
@@ -52,7 +56,7 @@ const DetailsUsers = () => {
                 <>
                   <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}> Back </Button>                   
                   <Button variant="contained" value='next' color="primary" disabled={!name || !email || !phone} onClick={handleNext} className={classes.button} >
-                     { [activeStep === steps.length - 1 ? 'Finish' : 'Next']}                  
+                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}                  
                   </Button>
                 </>
             </StepContent>
