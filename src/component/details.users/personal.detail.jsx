@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
+import './personal.detail.css';
+import ControlDetail from './control.detail';
+
 class PersonalDetail extends Component {
     constructor(props){
         super(props);
         this.state={
-            name:'',
-            email:'',
-            phone:''
+            name: '',
+            email: '',
+            phone: ''
         }
     }      
     handleSubmit = async event => {
@@ -13,7 +16,7 @@ class PersonalDetail extends Component {
     }
     hadleChange = event => {
         const {onNameChange, onEmailChange, onPhoneChange} = this.props;
-        const {value, name, email, phone } = event.target;        
+        const {value, name, email, phone} = event.target;        
         switch(name){
             case 'name':{
                 onNameChange(value);
@@ -25,13 +28,15 @@ class PersonalDetail extends Component {
             }
             case 'phone':{
                 onPhoneChange(value);
-            }           
+                break;
+            }         
             default:
           }
         this.setState({ [name]: value, [email]:value, [phone]:value });
     }   
     render(){
-        return(           
+        return(
+            <>           
             <form className='bord' onSubmit={this.handleSubmit} action='form.php' method='get' >
                 <h2>Your Details </h2>
                 <img className='avantar' alt='' src='https://cdn2.iconfinder.com/data/icons/audio-16/96/user_avatar_profile_login_button_account_member-512.png'  />
@@ -39,6 +44,13 @@ class PersonalDetail extends Component {
                 <input type='text' placeholder='Email Address' name='email' value={this.state.email} onChange={this.hadleChange} required/>
                 <input type='tel' placeholder='Phone' name='phone' value={this.state.phone} onChange={this.hadleChange} required/>
             </form>
+            <ol className='heading'>Please controll your detail to payment later</ol> 
+            <li>Your name is: <a className='heading2'>{this.state.name}</a></li>
+            <li>Your email is: <a className='heading2'>{this.state.email}</a></li>
+            <li>Your phone is: <a className='heading2'>{this.state.phone}</a></li>
+            <ol className='heading'>Are correct your detail?</ol>
+            <ControlDetail />
+            </>
         );
     }   
 }

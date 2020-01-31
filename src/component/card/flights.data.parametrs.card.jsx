@@ -6,7 +6,7 @@ const availableRoutesKeys = ['company', 'from', 'to', 'departure', 'retur', 'pri
 
 const FlightDataParametersCard = ({availableRoutes}) => (
     <>
-        {flightDataParameters.map((param, i) => {
+        {flightDataParameters.map((param, i, price) => {
             return (
                 <div>
                     <span className='checkout-header'>{param}</span>

@@ -14,7 +14,7 @@ const Payment = ({price}) => {
         label = 'Pay Now'
         name = 'AirLine'
         amount = {priceForStripe}
-        panelLabel='Paw Now'
+        panelLabel='Pay Now'
         token={onToken}
         stripeKey={publishableKey}
         />

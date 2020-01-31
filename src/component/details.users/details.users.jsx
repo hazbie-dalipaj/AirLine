@@ -8,8 +8,6 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import PersonalDetail from './personal.detail';
 import Payment from '../flights/payment/payment';
-import ControlDetail from './control.detail';
-
 const useStyles = makeStyles(theme => ({
   button: {
     marginTop: theme.spacing(1),
@@ -21,13 +19,12 @@ const DetailsUsers = () => {
   const [email, setEmail] = useState(null);
   const [phone, setPhone] = useState(null);
   function getSteps() {
-    return ['Complete your details', 'Control your detail','Payment'];
+    return ['Complete your details', 'Payment'];
   }
   function getStepContent (step) {
     switch (step) {
       case 0: return <PersonalDetail onNameChange={(name)=> setName(name)} onEmailChange={(email)=> setEmail(email)} onPhoneChange={(phone)=> setPhone(phone)} />        
-      case 1: return <ControlDetail />
-      case 2: return <Payment/>     
+      case 1: return <Payment/>     
       default:
     }    
   }
@@ -39,13 +36,13 @@ const DetailsUsers = () => {
   };  
   console.log(`name is ${name}`);
   console.log(`email is ${email}`);
-  console.log(`phone is ${phone}`)
+  console.log(`phone is ${phone}`);
   const handleBack = () => {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   };
   return (
     <div className={classes.root}>
-      <h4 className='title'>Please, complete all fields</h4>
+      <h4 className='title'>Please, complete all fields</h4> <hr />
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((label, index) => (
           <Step key={label}>
@@ -54,8 +51,8 @@ const DetailsUsers = () => {
               <>{getStepContent(index)}</>
                 <>
                   <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}> Back </Button>                   
-                  <Button variant="contained" value='next' color="primary" disabled={!name || !email} onClick={handleNext} className={classes.button} >
-                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}                  
+                  <Button variant="contained" value='next' color="primary" disabled={!name || !email || !phone} onClick={handleNext} className={classes.button} >
+                     { [activeStep === steps.length - 1 ? 'Finish' : 'Next']}                  
                   </Button>
                 </>
             </StepContent>

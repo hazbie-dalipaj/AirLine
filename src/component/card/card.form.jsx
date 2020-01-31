@@ -82,8 +82,10 @@ const CardForm = (props) => {
           <option>Air Canada</option>
           <option>Air China</option>
           <option>Air Europa</option>
+          <option>Lufthansa</option>
           <option>Olympic</option>
           <option>Skyjet Airlines</option>
+          <option>United</option>
         </NativeSelect>
       </FormControl>              
         </div>

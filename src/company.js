@@ -31,15 +31,25 @@ export const company = [
         id: 6,
         name: 'Air Europa',
         companyUrl: 'http://seekvectorlogo.com/wp-content/uploads/2018/06/air-europa-vector-logo.png'
-      },      
+      },
       {
         id: 7,
+        name: 'Lufthansa',
+        companyUrl: 'https://seekvectorlogo.com/wp-content/uploads/2017/12/lufthansa-vector-logo.png'
+      },      
+      {
+        id: 8,
         name: 'Olympic',
         companyUrl: 'https://www.airport-athens.com/images/airlines17/olympic-air.png'
       },
       {
-        id: 8,
+        id: 9,
         name: 'Skyjet Airlines',
         companyUrl: 'http://seekvectorlogo.com/wp-content/uploads/2018/05/skyjet-airlines-vector-logo.png'        
+      },
+      {
+        id: 10,
+        name: 'United',
+        companyUrl: 'https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/102010/united-continental-merger-logo.jpg?itok=2cHo0GnY'
       }
 ]

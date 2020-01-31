@@ -100,7 +100,7 @@ const FLIGHTS_DATA = [
                 from: 'China',
                 to: 'England',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Olympic'     
+                company:'Lufthansa'     
             },
             {
                 price: '290€',
@@ -113,7 +113,7 @@ const FLIGHTS_DATA = [
                 from: 'China',
                 to: 'Germany',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Skyjet Airlines'  
+                company:'Olympic'  
             },
             {
                 price: '290€',
@@ -126,7 +126,7 @@ const FLIGHTS_DATA = [
                 from: 'China',
                 to: 'Italy',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Adria'
+                company:'Skyjet Airlines'
             },
             {
                 price: '490€',
@@ -139,7 +139,7 @@ const FLIGHTS_DATA = [
                 from: 'China',
                 to: 'Portugal',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Advanced Air'      
+                company:'United'      
             }
         ]
     },
@@ -160,7 +160,7 @@ const FLIGHTS_DATA = [
                 from: 'England',
                 to: 'Canada',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Aegean'
+                company:'Adria'
             },
             {
                 price: '390€',
@@ -173,7 +173,7 @@ const FLIGHTS_DATA = [
                 from: 'England',
                 to: 'China',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Air Canada'
+                company:'Advanced Air'
             },
             {
                 price: '290€',
@@ -186,7 +186,7 @@ const FLIGHTS_DATA = [
                 from: 'England',
                 to: 'Germany',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Air China' 
+                company:'Aegean' 
             },
             {
                 price: '250€',
@@ -199,7 +199,7 @@ const FLIGHTS_DATA = [
                 from: 'England',
                 to: 'Italy',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Air Europa'
+                company:'Air Canada'
             },
             {
                 price: '290€',
@@ -212,7 +212,7 @@ const FLIGHTS_DATA = [
                 from: 'England',
                 to: 'Portugal',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Olympic'
+                company:'Air China'
             }
         ]
     },
@@ -233,7 +233,7 @@ const FLIGHTS_DATA = [
                 from: 'Germany',
                 to: 'Canada',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Skyjet Airlines'
+                company:'Air Europa'
             },
             {
                 price: '290€',
@@ -246,7 +246,7 @@ const FLIGHTS_DATA = [
                 from: 'Germany',
                 to: 'China',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Adria'
+                company:'Lufthansa'
             },
             {
                 price: '290€',
@@ -259,7 +259,7 @@ const FLIGHTS_DATA = [
                 from: 'Germany',
                 to: 'England',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Advanced Air'
+                company:'Olympic'
             },
             {
                 price: '250€',
@@ -272,7 +272,7 @@ const FLIGHTS_DATA = [
                 from: 'Germany',
                 to: 'Italy',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Aegean'
+                company:'Skyjet Airlines'
             },
             {
                 price: '290€',
@@ -285,7 +285,7 @@ const FLIGHTS_DATA = [
                 from: 'Germany',
                 to: 'Portugal',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Air Canada'
+                company:'United'
             }
         ]
     },
@@ -306,7 +306,7 @@ const FLIGHTS_DATA = [
                 from: 'Italy',
                 to: 'Canada',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Air China'                  
+                company:'Adria'                  
             },
             {
                 price: '290€',
@@ -319,7 +319,7 @@ const FLIGHTS_DATA = [
                 from: 'Italy',
                 to: 'China',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Air Europa'  
+                company:'Advanced Air'  
             },
             {
                 price: '250€',
@@ -332,7 +332,7 @@ const FLIGHTS_DATA = [
                 from: 'Italy',
                 to: 'England',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Olympic'   
+                company:'Aegean'   
             },
             {
                 price: '250€',
@@ -345,7 +345,7 @@ const FLIGHTS_DATA = [
                 from: 'Italy',
                 to: 'Germany',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Skyjet Airlines'  
+                company:'Air Canada'  
             },
             {
                 price: '290€',
@@ -358,7 +358,7 @@ const FLIGHTS_DATA = [
                 from: 'Italy',
                 to: 'Portugal',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Adria'
+                company:'Air China'
             }
         ]
     },
@@ -379,7 +379,7 @@ const FLIGHTS_DATA = [
                 from: 'Portugal',
                 to: 'Canada',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Advanced Air' 
+                company:'Air Europa' 
             },
             {
                 price: '490€',
@@ -392,7 +392,7 @@ const FLIGHTS_DATA = [
                 from: 'Portugal',
                 to: 'China',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Aegean'   
+                company:'Lufthansa'   
             },
             {
                 price: '290€',
@@ -405,7 +405,7 @@ const FLIGHTS_DATA = [
                 from: 'Portugal',
                 to: 'England',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Air Canada'    
+                company:'Olympic'    
             },
             {
                 price: '290€',
@@ -418,7 +418,7 @@ const FLIGHTS_DATA = [
                 from: 'Portugal',
                 to: 'Germany',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Air China'
+                company:'Skyjet Airlines'
             },
             {
                 price: '290€',
@@ -431,7 +431,7 @@ const FLIGHTS_DATA = [
                 from: 'Portugal',
                 to: 'Italy',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
-                company:'Air Europa'
+                company:'United'
             }
         ]
     }
