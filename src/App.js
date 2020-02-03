@@ -11,8 +11,9 @@ import DetailsUsers from './component/details.users/details.users';
 import FlightsPage from './component/collection-flights/flights.page';
 import FlightsPageReturn from './component/collection-flights/flights.page.return';
 import FlightsPageCard from './component/card/flights.page.card';
-import CheckoutPage from './component/collection-flights/example';
-import FormCheckInCard from './component/card/form.check.in.card'
+import FormCheckInCard from './component/card/form.check.in.card';
+import RequestRating from './component/rating/request.rating';
+import HoverRating from './component/rating/rating';
 
 class App extends React.Component {
 	constructor(){
@@ -115,8 +116,8 @@ class App extends React.Component {
             />
           );
         } } />
-
-        <Route path='/test' component={CheckoutPage} />
+        <Route path='/request-rating' component={RequestRating} />
+        <Route path='/rating' component={HoverRating} />
       </Switch>
       
     </div>

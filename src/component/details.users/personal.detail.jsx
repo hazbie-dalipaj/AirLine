@@ -43,10 +43,10 @@ class PersonalDetail extends Component {
                 <input type='text' placeholder='Email Address' name='email' value={this.state.email} onChange={this.hadleChange} required/>
                 <input type='tel' placeholder='Phone' name='phone' value={this.state.phone} onChange={this.hadleChange} required/>
             </form>
-            <ol className='heading'>Please controll your detail to payment later</ol> 
-            <li>Your name is: <a className='heading2'>{this.state.name}</a></li>
-            <li>Your email is: <a className='heading2'>{this.state.email}</a></li>
-            <li>Your phone is: <a className='heading2'>{this.state.phone}</a></li>
+            <ol className='heading'>Please controll your details to payment later</ol> 
+            <li >Your name is: <a className='heading2'>{this.state.name}</a></li>
+            <li >Your email is: <a className='heading2'>{this.state.email}</a></li>
+            <li >Your phone is: <a className='heading2'>{this.state.phone}</a></li>
             </>
         );
     }   

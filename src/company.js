@@ -13,7 +13,7 @@ export const company = [
     {
       id: 3,
       name: 'Aegean',
-      companyUrl: 'https://www.sympossio.gr/wordpress/wp-content/uploads/2019/01/aegean-logo.jpg'
+      companyUrl: 'https://seekvectorlogo.com/wp-content/uploads/2018/05/aegean-airlines-vector-logo.png'
         
       },
       {

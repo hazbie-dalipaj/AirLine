@@ -5,6 +5,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import PersonalDetail from './personal.detail';
 import ControlDetail from './control.detail';
@@ -19,16 +20,15 @@ const DetailsUsers = () => {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [phone, setPhone] = useState(null);
-  const [value, setValue] = useState('yes');
   function getSteps() {
     return ['Complete your details', 'Control you details', 'Payment'];
   }
   function getStepContent (step) {
     switch (step) {
-      case 0: return <PersonalDetail onNameChange={(name)=> setName(name)} onEmailChange={(email)=> setEmail(email)} onPhoneChange={(phone)=> setPhone(phone)} />
-      case 1: return <ControlDetail onValueChange={(value) => setValue(value)} />        
-      case 2: return <Payment/>     
-      default:
+      case 0: return <PersonalDetail onNameChange={(name)=> setName(name)} onEmailChange={(email)=> setEmail(email)} onPhoneChange={(phone)=> setPhone(phone)} />;
+      case 1: return <ControlDetail  />  ;      
+      case 2: return <Payment/>; 
+      default: return 'Unknown step'
     }    
   }
   const classes = useStyles();
@@ -40,7 +40,7 @@ const DetailsUsers = () => {
   console.log(`name is ${name}`);
   console.log(`email is ${email}`);
   console.log(`phone is ${phone}`);
-  console.log(`the state is ${value}`)
+
   const handleBack = () => {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   };
@@ -64,7 +64,9 @@ const DetailsUsers = () => {
         ))}
       </Stepper>
       {activeStep === steps.length && (
-          <Typography> Your payment is complete! Nice Trip!</Typography>)}
+        <Paper square elevation={0} className={classes.resetContainer}>
+          <Typography> Your payment is complete! Nice Trip!</Typography>
+          </Paper>)}
     </div>
   );
 }
