@@ -11,19 +11,15 @@ class PageFlights extends Component {
                 <div className='flights'>
                     <FormCheckIn />
                 </div>
-
                 <div className='flights'>
                 <h1 className='title'>Countries to travel</h1>
                     <DirectoryMenu />                
-                </div>
-                
+                </div>                
                 <div className='map-flights'>
                     <h1 className='title'>See the map</h1>
                     <SimpleMap />
-                </div>
-                
-            </>
-            
+                </div>                
+            </>           
         )
     }    
 }

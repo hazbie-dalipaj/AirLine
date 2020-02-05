@@ -9,23 +9,24 @@ const ControlDetail = () => {
     const handleChange = event => {
         setValue(event.target.value);
       };
-      console.log(`value is ${value}`);
+    console.log(`value is ${value}`);
+
     return(
         <div>
             <ol className='heading'>Are correct your detail?</ol>
             <FormControl >
-        <RadioGroup value={value} onChange={handleChange} >
-          <FormControlLabel value="yes" control={<Radio color="default" />} label="Yes" />
-        </RadioGroup>
-      </FormControl>
+              <RadioGroup value={value} onChange={handleChange} >
+                <FormControlLabel value="yes" control={<Radio color="default" />} label="Yes" />
+              </RadioGroup>
+            </FormControl>
 
-      <FormControl >
-        <RadioGroup value={value} onChange={handleChange} >
-          <FormControlLabel value="no" control={<Radio color="default" />} label="No" />
-        </RadioGroup>
-      </FormControl>
-      {value==='yes' && <ol>Continue to next step</ol>}
-      {value==='no' && <ol>Please, rewite your details on setp 1</ol>}
+            <FormControl >
+              <RadioGroup value={value} onChange={handleChange} >
+                <FormControlLabel value="no" control={<Radio color="default" />} label="No" />
+              </RadioGroup>
+            </FormControl>
+          {value==='yes' && <ol>Continue to next step</ol>}
+          {value==='no' && <ol>Please, rewite your details on setp 1</ol>}
         </div>
     )
 }

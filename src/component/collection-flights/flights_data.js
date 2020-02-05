@@ -13,7 +13,7 @@ const FLIGHTS_DATA = [
                 id: 1,
                 from: 'Canada',
                 to: 'China',
-                cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
+                cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],               
                 company:'Adria'
             },
             {
@@ -38,7 +38,7 @@ const FLIGHTS_DATA = [
                 retur:'2020-01-30',         
                 id: 3,
                 from: 'Canada',
-                to: 'Germany',  
+                to: 'Germany',
                 cabine: ['Economy', 'Premium Economy', 'Business Class', 'First Class'],
                 company:'Aegean'
             },

@@ -8,12 +8,11 @@ const FlightDataParametersReturn = ({availableRoutes}) => (
     <>
         {flightDataParameters.map((param, i) => {
             return (
-                <div>
+                <div key={i}>
                     <span className='checkout-header'>{param}</span>
                     {availableRoutes.map((route) => {
                         return (
-                        <div key={route.id}>{route[availableRoutesKeys[i]]}</div>
-                        
+                        <div key={route.id}>{route[availableRoutesKeys[i]]}</div>                        
                     )})}
                 </div>
             )
@@ -21,5 +20,4 @@ const FlightDataParametersReturn = ({availableRoutes}) => (
         <SelectParam />
     </>
 )
-
 export default FlightDataParametersReturn;

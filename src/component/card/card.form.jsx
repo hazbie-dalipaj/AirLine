@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
@@ -6,74 +6,70 @@ import NativeSelect from '@material-ui/core/NativeSelect';
 
 const useStyles = makeStyles(theme => ({
         formControl: {
-          margin: theme.spacing(8)
+          margin: theme.spacing(5),
+          minWidth: 10,
         },
 }));
 
-const CardForm = (props) => {
-  const inputLabel = useRef(null);
-  const [labelWidth, setLabelWidth] = useState(0);
-  
-  useEffect(() => {
-    setLabelWidth(inputLabel.current.offsetWidth);
-  }, []);
+const CardForm = ({
+  onSetValue,
+}) => {
+  const [state, setState] = useState({
+    FromCountry: '',
+    name: '',
+    ToCountry: '',
+    Company: '',
+  });
 
   const handleChange = name => event => {
-    const {onFromChange, onToChange, onCompanyChange} = props;
     const value = event.target.value;
-
-    switch(name){
-      case 'FromCountry':{
-        onFromChange(value);
-        break;
-      }
-      case 'ToCountry':{
-        onToChange(value);
-        break;
-      }
-      case 'Company':{
-          onCompanyChange(value);
-      }      
-      default:
-    } 
+    onSetValue(name, value);
+    
+    setState({
+      ...state,
+      [name]: value,
+    });
   };
 
     return(
         <div className='return'>
+          <FormControl className={useStyles().formControl}>
+          <FormHelperText>From</FormHelperText>
+          <NativeSelect 
+            value={state.country}
+            onChange={handleChange('FromCountry')}
+          >
+            <option>None</option>
+            <option>Canada</option>
+            <option>China</option>
+            <option>England</option>
+            <option>Germany</option>
+            <option>Italy</option>
+            <option>Portugal</option>
+          </NativeSelect>
+        </FormControl>
+        
         <FormControl className={useStyles().formControl}>
-        <FormHelperText ref={inputLabel}>From</FormHelperText>
-        <NativeSelect
-          onChange={handleChange('FromCountry')}         
-        >
-          <option>None</option>
-          <option>Canada</option>
-          <option>China</option>
-          <option>England</option>
-          <option>Germany</option>
-          <option>Italy</option>
-          <option>Portugal</option>
-        </NativeSelect>
-      </FormControl>
-      
-      <FormControl className={useStyles().formControl}>
-        <FormHelperText >To</FormHelperText>
-        <NativeSelect
-          onChange={handleChange('ToCountry')}          
-        >
-          <option>None</option>
-          <option>Canada</option>
-          <option>China</option>
-          <option>England</option>
-          <option>Germany</option>
-          <option>Italy</option>
-          <option>Portugal</option>
-        </NativeSelect>
-      </FormControl>
+          <FormHelperText >To</FormHelperText>
+          <NativeSelect 
+            value={state.ToCountry}
+            onChange={handleChange('ToCountry')}
+          >
+            <option>None</option>
+            <option>Canada</option>
+            <option>China</option>
+            <option>England</option>
+            <option>Germany</option>
+            <option>Italy</option>
+            <option>Portugal</option>
+          </NativeSelect>
+        </FormControl>
 
-      <FormControl className={useStyles().formControl}>
-        <FormHelperText >Company</FormHelperText>
+    <FormControl className={useStyles().formControl}>
+        <FormHelperText>Company</FormHelperText>
         <NativeSelect
-          onChange={handleChange('Company')}          
+          value={state.Company}
+          onChange={handleChange('Company')}
         >
           <option>None</option>
           <option>Adria</option>
@@ -87,7 +83,7 @@ const CardForm = (props) => {
           <option>Skyjet Airlines</option>
           <option>United</option>
         </NativeSelect>
-      </FormControl>              
+      </FormControl>  
         </div>
     )
 }

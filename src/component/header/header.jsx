@@ -19,31 +19,25 @@ const Header = ({currentUser}) => {
   return(
     <div className='header'>
       <div className='options'>
-
-      <Link className='option' to='/'>
+        <Link className='option' to='/'>
           <button className='header-button'><HomeIcon /> Home Page </button>
-          </Link>
-
+        </Link>
         <Link className='option' to='/flights'>
           <button className='header-button'><FlightTakeoffIcon/> Flights</button>
         </Link>
-
         <Link className='option' to='/request-rating'>
-      <button className='header-button'><StarIcon/> Rating</button>
-    </Link>
-
+          <button className='header-button'><StarIcon/> Rating</button>
+        </Link>
         {currentUser ? (
-		<div className='option' onClick={() => auth.signOut()}>
-		<button className='header-button'>Sign Out</button>
-		</div>
-		):(		
+		      <div className='option' onClick={() => auth.signOut()}>
+		      <button className='header-button'>Sign Out</button>
+		      </div>
+		      ):(		
           <Link className='option' to='/signin' >
             <button className='header-button'><PersonIcon /> Log in</button>
           </Link>
-		)} 
-    
+		    )}     
       </div>
     </div>
   );}
-
 export default Header;

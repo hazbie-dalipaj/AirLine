@@ -10,19 +10,23 @@ import Typography from '@material-ui/core/Typography';
 import PersonalDetail from './personal.detail';
 import ControlDetail from './control.detail';
 import Payment from '../flights/payment/payment';
+
 const useStyles = makeStyles(theme => ({
   button: {
     marginTop: theme.spacing(1),
     marginRight: theme.spacing(1),
   }
 }));
+
 const DetailsUsers = () => {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [phone, setPhone] = useState(null);
+
   function getSteps() {
     return ['Complete your details', 'Control you details', 'Payment'];
   }
+
   function getStepContent (step) {
     switch (step) {
       case 0: return <PersonalDetail onNameChange={(name)=> setName(name)} onEmailChange={(email)=> setEmail(email)} onPhoneChange={(phone)=> setPhone(phone)} />;
@@ -31,12 +35,15 @@ const DetailsUsers = () => {
       default: return 'Unknown step'
     }    
   }
+
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
+
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
   };  
+
   console.log(`name is ${name}`);
   console.log(`email is ${email}`);
   console.log(`phone is ${phone}`);
@@ -44,6 +51,7 @@ const DetailsUsers = () => {
   const handleBack = () => {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   };
+
   return (
     <div className={classes.root}>
       <h4 className='title'>Please, complete all fields</h4> <hr />
@@ -66,7 +74,7 @@ const DetailsUsers = () => {
       {activeStep === steps.length && (
         <Paper square elevation={0} className={classes.resetContainer}>
           <Typography> Your payment is complete! Nice Trip!</Typography>
-          </Paper>)}
+        </Paper>)}
     </div>
   );
 }

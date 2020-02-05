@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import {company} from '../../company';
 import CardList from '../card/card.list';
 import Search from '../search/search';
@@ -15,6 +15,7 @@ class HomePage extends Component{
       onSearchChange = (event) => {
         this.setState({searchfield: event.target.value})
       }
+
     render(){
         const filteredCompany = this.state.company.filter(company => {
             return company.name.toLowerCase().includes(this.state.searchfield.toLowerCase())

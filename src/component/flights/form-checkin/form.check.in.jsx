@@ -19,6 +19,7 @@ const FormCheckIn = () => {
   const handleChange = event => {
     setValue(event.target.value);
   };
+
   console.log('The state is: ', value);
   console.log(`the from value ${from}`);
   console.log(`the to value ${to}`);
@@ -27,34 +28,56 @@ const FormCheckIn = () => {
   console.log(`the cabine is ${cabine}`);
   const url = `/search-one-way-flights${from ? `/from:${from}`: ''}${to ? `/to:${to}`: ''}${departure ? `/departure:${departure}`: ''}${cabine ? `/cabine:${cabine}`: ''}`;
   const url2 = `/search-return-flights${from ? `/from:${from}`: ''}${to ? `/to:${to}`: ''}${departure ? `/departure:${departure}`: ''}${retur ? `/retur:${retur}`: ''}${cabine ? `/cabine:${cabine}`: ''}`;
- 
+  const onFromChange = (from) => setFrom(from);
+  const onToChange = (to) => setTo(to);
+  const onDepartureChange = (departure) => setDeparture(departure);
+  const onReturnChange = (retur) => setRetur(retur);
+  const onCabineChange = (cabine) => setCabine(cabine);
+
+  const onSetValue = (type, value) => {
+    switch(type){
+      case 'FromCountry':{
+        onFromChange(value);
+        break;
+      }
+      case 'ToCountry':{
+        onToChange(value);
+        break;
+      }
+      case 'Departure':{
+        onDepartureChange(value);
+        break;
+      }
+      case 'Return':{
+        onReturnChange(value);
+        break;
+      }
+      case 'Cabine': {
+        onCabineChange(value);
+        break;
+      }
+      default:
+    }
+  };
+
   return(
     <>     
       <form className='form'>
-      <h2>What's your next destination ?</h2>
-      <FormControl >
-        <RadioGroup value={value} onChange={handleChange} >
-          <FormControlLabel value="return" control={<Radio color="default" />} label="Return" />
-        </RadioGroup>
-      </FormControl>
-
-      <FormControl >
-        <RadioGroup value={value} onChange={handleChange}>
-          <FormControlLabel value="oneway" control={<Radio color="default" />} label="OneWay" />
-        </RadioGroup>
-      </FormControl>
-        {value=== 'return' && <FormReturn 
-          onFromChange={(from)=> setFrom(from)} 
-          onToChange={(to)=> setTo(to)} 
-          onDepartureChange={(departure)=>setDeparture(departure)} 
-          onReturnChange={(retur)=>setRetur(retur)} 
-          onCabineChange={(cabine)=>setCabine(cabine)} /> || <Link to={url}><button className='search-flights'>Search Flights on</button></Link>}
-
-        {value === 'oneway' && <FormOneWay 
-          onFromChange={(from)=> setFrom(from)} 
-          onToChange={(to)=> setTo(to)} 
-          onDepartureChange={(departure)=> setDeparture(departure)} 
-          onCabineChange={(cabine)=>setCabine(cabine)} /> || <Link to={url2}><button className='search-flights'>Search Flights Ret</button></Link>}
+        <h2>What's your next destination ?</h2>
+        <FormControl >
+          <RadioGroup value={value} onChange={handleChange} >
+            <FormControlLabel value="return" control={<Radio color="default" />} label="Return" />
+          </RadioGroup>
+        </FormControl>
+        <FormControl >
+          <RadioGroup value={value} onChange={handleChange}>
+            <FormControlLabel value="oneway" control={<Radio color="default" />} label="OneWay" />
+          </RadioGroup>
+        </FormControl>
+        {value=== 'return' && <FormReturn onSetValue={onSetValue}/>}
+        {value === 'oneway' && <FormOneWay onSetValue={onSetValue} />}
+        {value=== 'return' && <Link to={url2}><button className='search-flights'>Search Flights</button></Link>}
+        {value=== 'oneway' && <Link to={url}><button className='search-flights'>Search Flights</button></Link>}
       </form>      
     </>
   )

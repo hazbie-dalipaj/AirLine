@@ -9,13 +9,16 @@ class PersonalDetail extends Component {
             email: '',
             phone: ''
         }
-    }      
+    }
+
     handleSubmit = async event => {
         event.preventDefault();
     }
+
     hadleChange = event => {
         const {onNameChange, onEmailChange, onPhoneChange} = this.props;
-        const {value, name, email, phone} = event.target;        
+        const {value, name, email, phone} = event.target;
+
         switch(name){
             case 'name':{
                 onNameChange(value);
@@ -31,8 +34,10 @@ class PersonalDetail extends Component {
             }         
             default:
           }
+          
         this.setState({ [name]: value, [email]:value, [phone]:value });
-    }   
+    }
+
     render(){
         return(
             <>           

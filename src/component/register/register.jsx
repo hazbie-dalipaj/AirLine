@@ -16,40 +16,38 @@ class Register extends React.Component{
             repassword:''
         }
     }
+
     handleSubmit = async event => {
-        event.preventDefault();
-    
-        const { name, surname, username, email, password, repassword } = this.state;
-    
+        event.preventDefault();    
+        const { name, surname, username, email, password, repassword } = this.state;   
         if (password !== repassword) {
           alert("passwords don't match");
           return;
         }
+
 		try{
 			const {user} = await auth.createUserWithEmailAndPassword(email, password);
 			await createUserProfileDocument(user, {name});
             await createUserProfileDocument(user, {surname});
-            await createUserProfileDocument(user, {username});
-			
-			this.setState(
-				{
-            name:'',
-            surname:'',
-            username:'',
-            email:'',
-            password:'',
-            repassword:''
-        }
-			)
+            await createUserProfileDocument(user, {username});			
+			this.setState({
+                name:'',
+                surname:'',
+                username:'',
+                email:'',
+                password:'',
+                repassword:''
+        })
 		}catch(error){
 			console.error(error);
 		}
     }
 	
 	handleChange = event => {
-  const {value, name } = event.target;
-  this.setState({ [name]: value })
-  }
+        const {value, name } = event.target;
+        this.setState({ [name]: value })
+    }
+
     render(){
         return(
             <>

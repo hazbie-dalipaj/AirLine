@@ -8,7 +8,7 @@ const FlightDataParameters = ({availableRoutes}) => (
     <>
         {flightDataParameters.map((param, i) => {
             return (
-                <div>
+                <div key={i}>
                     <span className='checkout-header'>{param}</span>
                     {availableRoutes.map((route) => {
                         return (
@@ -21,5 +21,4 @@ const FlightDataParameters = ({availableRoutes}) => (
         <SelectParam />
     </>
 )
-
 export default FlightDataParameters;

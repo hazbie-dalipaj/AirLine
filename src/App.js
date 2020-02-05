@@ -14,23 +14,16 @@ import FlightsPageCard from './component/card/flights.page.card';
 import FormCheckInCard from './component/card/form.check.in.card';
 import RequestRating from './component/rating/request.rating';
 import HoverRating from './component/rating/rating';
+import Results from './component/rating/results';
 
 class App extends React.Component {
 	constructor(){
 		super();
 		this.state={
-			currentUser:null
+      currentUser:null
 		};
   }
   unsubscribeFormAuth = null;
-
-  //componentDidMount(){
-    //this.unsubscribeFormAuth =  auth.onAuthStateChanged(async user => {
-     // createUserProfileDocument(user);
-      //this.setState({currentUser: user});
-      //console.log(user);
-    //})
-  //}
 
   componentDidMount(){
     this.unsubscribeFormAuth = auth.onAuthStateChanged(async userAuth => {
@@ -51,12 +44,11 @@ class App extends React.Component {
   componentWillUnmount(){
 		this.unsubscribeFormAuth();
   }
-
+  
   render() {
     return (
     <div className="App">
-      <Header currentUser={this.state.currentUser} />
-      
+      <Header currentUser={this.state.currentUser} />      
       <Switch>                  
         <Route exact path='/' component={HomePage} />  
         <Route path='/flights' component={PageFlights} />
@@ -69,7 +61,7 @@ class App extends React.Component {
           const pathParams = {};
             Object.values(match.params).forEach((param)=>{
               const splitedParam = param.split(':');
-              pathParams[splitedParam[0]] = splitedParam[1];
+              pathParams[splitedParam[0]] = splitedParam[1];             
             });
 
           return (
@@ -118,11 +110,11 @@ class App extends React.Component {
         } } />
         <Route path='/request-rating' component={RequestRating} />
         <Route path='/rating' component={HoverRating} />
+        <Route path='/results-my-app' component={Results} />
       </Switch>
       
     </div>
   );
   }  
 }
-
 export default App;

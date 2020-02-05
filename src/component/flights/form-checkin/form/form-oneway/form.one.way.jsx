@@ -6,51 +6,26 @@ import NativeSelect from '@material-ui/core/NativeSelect';
 import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
-        formControl: {
+          formControl: {
           margin: theme.spacing(5),
           minWidth: 10,
         },
 }));
 
-const FormOneWay = (props) => {
+const FormOneWay = ({
+  onSetValue,
+}) => {
   const [state, setState] = useState({
-    country: '',
+    FromCountry: '',
     name: '',
+    ToCountry: '',
+    Departure:'',
+    Cabine: '',
   });
 
-  const inputLabel = useRef(null);
-  const [, setLabelWidth] = useState(0);
-  
-  useEffect(() => {
-    setLabelWidth(inputLabel.current.offsetWidth);
-  }, []);
-
   const handleChange = name => event => {
-    const {onFromChange, onToChange} = props;
-    const {onDepartureChange} = props;
-    const {onCabineChange} = props;
     const value = event.target.value;
-
-    switch(name){
-      case 'FromCountry':{
-        onFromChange(value);
-        break;
-      }
-      case 'ToCountry':{
-        onToChange(value);
-        break;
-      }
-      case 'Departure':{
-        onDepartureChange(value);
-        break;
-      }
-      case 'cabine':{
-        onCabineChange(value);
-        break;
-      }
-      
-      default:
-    }
+    onSetValue(name, value);
 
     setState({
       ...state,
@@ -60,66 +35,57 @@ const FormOneWay = (props) => {
 
     return(
         <div className='return'>
+          <FormControl className={useStyles().formControl}>
+          <FormHelperText>From</FormHelperText>
+          <NativeSelect 
+            value={state.country}
+            onChange={handleChange('FromCountry')}
+          >
+            <option>None</option>
+            <option>Canada</option>
+            <option>China</option>
+            <option>England</option>
+            <option>Germany</option>
+            <option>Italy</option>
+            <option>Portugal</option>
+          </NativeSelect>
+        </FormControl>
+        
         <FormControl className={useStyles().formControl}>
-        <FormHelperText ref={inputLabel}>From</FormHelperText>
-        <NativeSelect
-          value={state.FromCountry}
-          onChange={handleChange('FromCountry')}
-          inputProps={{
-            name: 'FromCountry'            
-          }}
-        >
-          <option>None</option>
-          <option>Canada</option>
-          <option>China</option>
-          <option>England</option>
-          <option>Germany</option>
-          <option>Italy</option>
-          <option>Portugal</option>
-        </NativeSelect>
-      </FormControl>
-      
-      <FormControl className={useStyles().formControl}>
-        <FormHelperText >To</FormHelperText>
-        <NativeSelect
-          value={state.ToCountry}
-          onChange={handleChange('ToCountry')}
-          inputProps={{
-            name: 'ToCountry'            
-          }}
-        >
-          <option>None</option>
-          <option>Canada</option>
-          <option>China</option>
-          <option>England</option>
-          <option>Germany</option>
-          <option>Italy</option>
-          <option>Portugal</option>
-        </NativeSelect>
-      </FormControl>
+          <FormHelperText >To</FormHelperText>
+          <NativeSelect 
+            value={state.ToCountry}
+            onChange={handleChange('ToCountry')}
+          >
+            <option>None</option>
+            <option>Canada</option>
+            <option>China</option>
+            <option>England</option>
+            <option>Germany</option>
+            <option>Italy</option>
+            <option>Portugal</option>
+          </NativeSelect>
+        </FormControl>
 
       <FormControl className={useStyles().formControl}>
-      <FormHelperText ref={inputLabel}>Departure</FormHelperText>
+      <FormHelperText>Departure</FormHelperText>
       <TextField
         value={state.Departure}
         onChange={handleChange('Departure')}
-        inputProps={{
-        name: 'Departure'            
-      }}
-        id="date"
         type="date"
-        format="dd/MM/yyyy"
-        defaultValue="2020-01-01"  
+        InputLabelProps={{
+          shrink: true,
+        }}
       />
-    </FormControl>
+      </FormControl>
 
     <FormControl className={useStyles().formControl}>
-      <FormHelperText ref={inputLabel}>Return</FormHelperText>
-      <TextField disabled
+      <FormHelperText>Return</FormHelperText>
+      <TextField disabled 
+      value={state.Return}
+      onChange={handleChange('Return')}
         id="date"
         type="date"
-        format="dd/MM/yyyy"
-        defaultValue="2020-01-01"
         InputLabelProps={{
           shrink: true,
         }}
@@ -127,13 +93,10 @@ const FormOneWay = (props) => {
     </FormControl>
 
     <FormControl className={useStyles().formControl}>
-        <FormHelperText ref={inputLabel}>Cabin Class</FormHelperText>
+        <FormHelperText>Cabin Class</FormHelperText>
         <NativeSelect
-          value={state.cabine}
-          onChange={handleChange('cabine')}
-          inputProps={{
-            name: 'cabine'            
-          }}
+          value={state.Cabine}
+          onChange={handleChange('Cabine')}
         >
           <option>None</option>
           <option>Economy</option>
@@ -141,7 +104,7 @@ const FormOneWay = (props) => {
           <option>Business Class</option>
           <option>First Class</option>
         </NativeSelect>
-      </FormControl>
+      </FormControl>  
         </div>
     )
 }

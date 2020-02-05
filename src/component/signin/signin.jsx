@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import FormInput from '../form-input/form.input';
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
-
 class Signin extends Component{
     constructor(props){
         super()
@@ -13,6 +12,7 @@ class Signin extends Component{
           password:''
         }
       }
+
       handleSubmit = async event => {
         event.preventDefault();
         const {email,password}=this.state;
@@ -23,10 +23,12 @@ class Signin extends Component{
             console.log(error);
         }   
       }
+
       handleChange = event => {
         const {value, name } = event.target;
         this.setState({ [name]: value })
         }
+
     render(){
         return(
             <>
@@ -50,15 +52,13 @@ class Signin extends Component{
                     <br /><br />
                     <span className='spn'>or continue with</span>
                     <br /><br />
-
-                        <Link to='/rating'><img className='em' alt='' 
-						src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png'
+                    <Link to='/rating'><img className='em' alt='' 
+					    src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png'
 						onClick={signInWithGoogle} /></Link>
-                        <br /><br />
-
+                    <br /><br />
                     <span>Don't have an account? Click <Link to='/register'>here</Link></span>
                 </div>
-            </form>
+                </form>
             </>            
         )
     }
