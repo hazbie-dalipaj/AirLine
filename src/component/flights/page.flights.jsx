@@ -3,6 +3,7 @@ import './page.flights.css';
 import DirectoryMenu from '../directory.menu/directory-menu';
 import FormCheckIn from './form-checkin/form.check.in';
 import SimpleMap from './google.map/google.map';
+import Column from '../copyright/column';
 
 class PageFlights extends Component {
     render(){       
@@ -18,7 +19,10 @@ class PageFlights extends Component {
                 <div className='map-flights'>
                     <h1 className='title'>See the map</h1>
                     <SimpleMap />
-                </div>                
+                </div>
+                <div className='information'>
+                   <Column /> 
+                </div>                                
             </>           
         )
     }    

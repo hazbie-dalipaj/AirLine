@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import CardForm from './card.form';
 import {Link} from 'react-router-dom';
+import Column from '../copyright/column';
 
 const FormCheckInCard = () => {
   const [from, setFrom] = useState(null);
@@ -38,7 +39,10 @@ const FormCheckInCard = () => {
       <form className='form'>
       <h2>What's your next destination ?</h2>
         <CardForm onSetValue={onSetValue}  />  <Link to={url3}><button className='search-flights'>Search Flights</button></Link>
-      </form>      
+      </form>
+      <div className='information2'>
+        <Column />
+      </div>      
     </>
   )
 }

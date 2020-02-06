@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
-import {Link} from 'react-router-dom';
+import Column from '../copyright/column';
+import './rating.css'
 
 const labels = {
   1: 'Useless',
@@ -32,7 +33,7 @@ const HoverRating = ({currentUser}) => {
   const classes = useStyles();
   console.log(`You rating is ${rating}`);
 
-    let sum = labels1.reduce((previous, current) => current += previous);
+    let sum = labels1.reduce((previous, current) => current += previous, 0);
     let avg = sum / labels1.length;
 
   return (
@@ -46,14 +47,11 @@ const HoverRating = ({currentUser}) => {
         {rating !== null && <Box ml={2}>{labels[hover !== -1 ? hover : rating]}
         </Box>}      
       </div>
-      <>
-        <br></br><br></br>
-        <ol>Your rating is: {rating}</ol>
-       <ol>The sum of all the elements is: {sum}</ol>
-       <ol>The average is:{avg}</ol> 
-      </>               
+              
     </div>
-    <Link to='/results-my-app'>App Results</Link> 
+    <div className='information3'>
+      <Column />
+    </div> 
     </>      
   );
 }

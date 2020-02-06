@@ -3,6 +3,7 @@ import './register.css';
 import {Link} from 'react-router-dom'
 import FormInput from '../form-input/form.input';
 import {auth, createUserProfileDocument} from '../../firebase/firebase.utils';
+import Column from '../copyright/column';
 
 class Register extends React.Component{
     constructor(){
@@ -87,6 +88,9 @@ class Register extends React.Component{
                     <span>Have an account? Click <Link to='/signin'>here</Link></span>
                 </div>
             </form>
+            <div className='information1'>
+                <Column />
+            </div>
             </>     
         )
     }

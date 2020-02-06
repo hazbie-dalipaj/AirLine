@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import FLIGHTS_DATA from '../collection-flights/flights_data';
 import FlightsDataPreviewCard from './flights.data.preview.card';
-import '../collection-flights/flights_page.scss'
+import '../collection-flights/flights_page.scss';
+import Column from '../copyright/column';
 
 const FlightsPageCard = ({from, to, company}) => {
     const [flightsData, useFlightsData] = useState(FLIGHTS_DATA);
@@ -13,9 +14,11 @@ const FlightsPageCard = ({from, to, company}) => {
         <>        
         {flightsData.map(({id, ...otherCollectionProps}) => (
                 <FlightsDataPreviewCard key={id} {...otherCollectionProps} from={from} to={to} company={company} />                
-            ))}        
-            
+            ))}                    
         </>
+        <div className='information2'>
+                <Column />
+        </div>
     </>
     )
 }

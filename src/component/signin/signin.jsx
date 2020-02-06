@@ -3,6 +3,7 @@ import './signin.css';
 import {Link} from 'react-router-dom';
 import FormInput from '../form-input/form.input';
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
+import Column from '../copyright/column';
 
 class Signin extends Component{
     constructor(props){
@@ -59,6 +60,10 @@ class Signin extends Component{
                     <span>Don't have an account? Click <Link to='/register'>here</Link></span>
                 </div>
                 </form>
+                <div className='information1'>
+                   <Column /> 
+                </div>
+                
             </>            
         )
     }

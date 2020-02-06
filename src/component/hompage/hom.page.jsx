@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {company} from '../../company';
 import CardList from '../card/card.list';
 import Search from '../search/search';
+import Column from '../copyright/column';
 
 class HomePage extends Component{
     constructor(props){
@@ -25,6 +26,8 @@ class HomePage extends Component{
                 <h1 className='title'>Airline Company</h1> 
                 <Search searchChange={this.onSearchChange} />            
                 <CardList company={filteredCompany} />
+                <Column />
+                
             </div>
         )
     }

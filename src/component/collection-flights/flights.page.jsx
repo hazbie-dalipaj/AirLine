@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import FLIGHTS_DATA from './flights_data';
 import FlightsDataPreview from '../flights/form-checkin/form/form-oneway/flights-data-preview';
 import './flights_page.scss';
+import Column from '../copyright/column';
 
 const FlightsPage = ({from, to, departure, cabine}) => {
     const [flightsData, useFlightsData] = useState(FLIGHTS_DATA);
@@ -16,6 +17,9 @@ const FlightsPage = ({from, to, departure, cabine}) => {
                 <FlightsDataPreview key={id} {...otherCollectionProps} from={from} to={to} departure={departure} cabine={cabine} />                
             ))}                    
         </>
+        <div className='information2'>
+            <Column />
+        </div>
     </>
     )
 }

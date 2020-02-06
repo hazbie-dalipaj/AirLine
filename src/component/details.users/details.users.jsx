@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import PersonalDetail from './personal.detail';
 import ControlDetail from './control.detail';
 import Payment from '../flights/payment/payment';
+import Column from '../copyright/column';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -53,6 +54,7 @@ const DetailsUsers = () => {
   };
 
   return (
+    <>
     <div className={classes.root}>
       <h4 className='title'>Please, complete all fields</h4> <hr />
       <Stepper activeStep={activeStep} orientation="vertical">
@@ -76,6 +78,10 @@ const DetailsUsers = () => {
           <Typography> Your payment is complete! Nice Trip!</Typography>
         </Paper>)}
     </div>
+    <div className='information2'>
+      <Column />
+    </div>
+    </>
   );
 }
 export default DetailsUsers;
