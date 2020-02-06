@@ -26,7 +26,7 @@
     "i18next": "^19.1.0",
     "lodash": "^4.17.15",
     "mapbox-gl": "^1.6.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-cookies": "^0.1.1",
     "react-copyright": "0.0.1",
