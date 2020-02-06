@@ -8,7 +8,7 @@ import Register from './component/register/register';
 import HomePage from './component/hompage/hom.page';
 import {auth, createUserProfileDocument} from './firebase/firebase.utils';
 import DetailsUsers from './component/details.users/details.users';
-import FlightsPage from './component/collection-flights/flights.page';
+import FlightsPage from './component/collection-flights/flights.page.oneway';
 import FlightsPageReturn from './component/collection-flights/flights.page.return';
 import FlightsPageCard from './component/card/flights.page.card';
 import FormCheckInCard from './component/card/form.check.in.card';
