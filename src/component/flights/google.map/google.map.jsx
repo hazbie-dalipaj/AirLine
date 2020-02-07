@@ -14,7 +14,7 @@ class SimpleMap extends Component {
   render() {
     return (
       <div className='map' style={{ height: '75vh', width: '203vh'}}>
-        <GoogleMapReact bootstrapURLKeys={{ key: "AIzaSyBFpyyS_1uLzPdsoSY2rPDT9-E8moNm3ew"}} defaultCenter={this.props.center} defaultZoom={this.props.zoom}>         
+        <GoogleMapReact bootstrapURLKeys={{ key: "AIzaSyBFpyyS_1uLzPdsoSY2rPDT9-E8moNm3ew"}} defaultCenter={this.props.center} defaultZoom={this.props.zoom}>       
           <AnyReactComponent lat={55.585901} lng={-105.750596} text="Marker Canada" />
           <AnyReactComponent lat={35.8600198} lng={104.165802} text="Marker China" />
           <AnyReactComponent lat={52.8536597} lng={-1.0825582} text="Marker England" />

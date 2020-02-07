@@ -57,6 +57,7 @@ class App extends React.Component {
         <Route path='/users-data' component={DetailsUsers} />
         <Route path='/card-flights' component={FormCheckInCard} />
 
+
         <Route path='/search-flights-by-company/:param1/:param2/:param3' render={({match}) =>{
           const pathParams = {};
             Object.values(match.params).forEach((param)=>{
@@ -111,8 +112,7 @@ class App extends React.Component {
         <Route path='/request-rating' component={RequestRating} />
         <Route path='/rating' component={HoverRating} />
         <Route path='/results-my-app' component={Results} />
-      </Switch>
-      
+      </Switch> 
     </div>
   );
   }  

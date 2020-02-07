@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './request.rating.css'
 import Column from '../copyright/column';
+//import translate from 'google-translate-api'
+//const translate = require('google-translate-api');
 
 const RequestRating = () => {
     return(
