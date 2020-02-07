@@ -56,5 +56,4 @@ class DirectoryMenu extends React.Component{
         )
     }
 }
-
 export default DirectoryMenu;

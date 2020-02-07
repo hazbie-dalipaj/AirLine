@@ -18,23 +18,17 @@ const labels = {
   10: 'Excellent+',
 };
 
-let labels1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
 const useStyles = makeStyles({
   rating: {
     alignItems: 'center',
   },
 });
 
-const HoverRating = ({currentUser}) => {
+const HoverRating = () => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(-1);
-
   const classes = useStyles();
   console.log(`You rating is ${rating}`);
-
-    let sum = labels1.reduce((previous, current) => current += previous, 0);
-    let avg = sum / labels1.length;
 
   return (
     <>

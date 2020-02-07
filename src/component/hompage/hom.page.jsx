@@ -26,8 +26,7 @@ class HomePage extends Component{
                 <h1 className='title'>Airline Company</h1> 
                 <Search searchChange={this.onSearchChange} />            
                 <CardList company={filteredCompany} />
-                <Column />
-                
+                <Column />              
             </div>
         )
     }

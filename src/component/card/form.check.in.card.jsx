@@ -13,7 +13,6 @@ const FormCheckInCard = () => {
   console.log(`the from value ${from}`);
   console.log(`the to value ${to}`);
   console.log(`the company date ${company}`);
-
   const url3 = `/search-flights-by-company${from ? `/from:${from}`: ''}${to ? `/to:${to}`: ''}${company ? `/company:${company}`: ''}`;
 
   const onSetValue = (type, value) => {

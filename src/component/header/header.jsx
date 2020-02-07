@@ -6,7 +6,6 @@ import SvgIcon from '@material-ui/core/SvgIcon';
 import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import StarIcon from '@material-ui/icons/Star';
 import PersonIcon from '@material-ui/icons/Person';
-import Signin from '../signin/signin';
 
 function HomeIcon(props) {
   return (

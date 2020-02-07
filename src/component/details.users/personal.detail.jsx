@@ -18,7 +18,6 @@ class PersonalDetail extends Component {
     hadleChange = event => {
         const {onNameChange, onEmailChange, onPhoneChange} = this.props;
         const {value, name, email, phone} = event.target;
-
         switch(name){
             case 'name':{
                 onNameChange(value);
@@ -33,8 +32,7 @@ class PersonalDetail extends Component {
                 break;
             }         
             default:
-          }
-          
+          }         
         this.setState({ [name]: value, [email]:value, [phone]:value });
     }
 

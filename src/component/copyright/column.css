@@ -3,12 +3,14 @@
     color: white;  
     background-color: rgb(7, 105, 167);
 }
+
 .column {
     float: left;
     width: 33.33%;
     padding: 20px;
     height: 200px;
-  }
+}
+
   .color{
     color: white;
 }
