@@ -6,7 +6,7 @@ import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 import Column from '../copyright/column';
 
 class Signin extends Component{
-    constructor(props){
+    constructor(){
         super()
         this.state={
           email:'',
@@ -49,10 +49,13 @@ class Signin extends Component{
                     <label>Password</label>
                     <FormInput type='password' placeholder='enter your password' name='password' value={this.state.password} onChange={this.handleChange} required />
                     <br /><br />
+
                     <Link to='/rating'><button type="submit">Login</button></Link>
                     <br /><br />
+
                     <span className='spn'>or continue with</span>
                     <br /><br />
+
                     <Link to='/rating'><img className='em' alt='' 
 					    src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png'
 						onClick={signInWithGoogle} /></Link>

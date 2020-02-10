@@ -6,7 +6,7 @@ const Column = () => {
     <div className="row">
         <div className="column">
             <h2>Copyright</h2>
-            <span className='copyright'>&#169; 2020. AirLine</span> 
+            <span className='copyright'>&#169; 2020. AirLine</span>
         </div>
         <div className="column">
             <h2>Contact</h2>

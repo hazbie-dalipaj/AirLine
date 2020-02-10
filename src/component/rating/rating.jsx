@@ -15,7 +15,7 @@ const labels = {
   7: 'Good',
   8: 'Good+',
   9: 'Excellent',
-  10: 'Excellent+',
+  10:'Excellent+',
 };
 
 const useStyles = makeStyles({
@@ -28,7 +28,7 @@ const HoverRating = () => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(-1);
   const classes = useStyles();
-  console.log(`You rating is ${rating}`);
+  console.log(`You rating: ${rating}`);
 
   return (
     <>
@@ -40,9 +40,9 @@ const HoverRating = () => {
         />
         {rating !== null && <Box ml={2}>{labels[hover !== -1 ? hover : rating]}
         </Box>}      
-      </div>
-              
+      </div>                   
     </div>
+
     <div className='information3'>
       <Column />
     </div> 

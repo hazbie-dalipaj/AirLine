@@ -66,7 +66,7 @@ const DetailsUsers = () => {
                 <>
                   <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}> Back </Button>                   
                   <Button variant="contained" value='next' color="primary" disabled={!name || !email || !phone } onClick={handleNext} className={classes.button} >
-                     {/*activeStep === steps.length - 1 ? 'Finish' : 'Next'*/}    Next      
+                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}     
                   </Button>
                 </>
             </StepContent>
