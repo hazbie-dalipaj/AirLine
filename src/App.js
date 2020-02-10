@@ -14,7 +14,6 @@ import FlightsPageCard from './component/card/flights.page.card';
 import FormCheckInCard from './component/card/form.check.in.card';
 import RequestRating from './component/rating/request.rating';
 import HoverRating from './component/rating/rating';
-import Results from './component/rating/results';
 
 class App extends React.Component {
 	constructor(){
@@ -111,7 +110,6 @@ class App extends React.Component {
         } } />
         <Route path='/request-rating' component={RequestRating} />
         <Route path='/rating' component={HoverRating} />
-        <Route path='/results-my-app' component={Results} />
       </Switch> 
     </div>
   );
