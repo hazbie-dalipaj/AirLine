@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "(airline)",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
