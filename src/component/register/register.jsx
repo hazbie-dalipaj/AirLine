@@ -49,6 +49,9 @@ class Register extends React.Component{
     }
 
     render(){
+        function myFunction(){
+            alert('You register')
+        }
         return(
             <>
                 <div className='cent'>
@@ -79,7 +82,8 @@ class Register extends React.Component{
 
                         <label>Re-Password</label>
                         <FormInput type='password' placeholder='enter your password' name='repassword' value={this.state.repassword} onChange={this.handleChange} required />
-                        <button type="submit">Register</button>
+                        <button type="submit" onclick="myFunction()">Register</button>
+                        
                         <br></br><br></br>
                         
                         <span>Have an account? Click <Link to='/signin'>here</Link></span>
