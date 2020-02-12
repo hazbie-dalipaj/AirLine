@@ -11,12 +11,12 @@ const Payment = ({price}) => {
     
     return(
         <StripeCheckout 
-        label = 'Pay Now'
-        name = 'AirLine'
-        amount = {priceForStripe}
-        panelLabel='Pay Now'
-        token={onToken}
-        stripeKey={publishableKey}
+            label = 'Pay Now'
+            name = 'AirLine'
+            amount = {priceForStripe}
+            panelLabel='Pay Now'
+            token={onToken}
+            stripeKey={publishableKey}
         />
     )
 }

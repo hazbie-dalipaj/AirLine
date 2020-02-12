@@ -12,8 +12,8 @@ const FlightDataParametersReturn = ({availableRoutes}) => (
                     <span className='checkout-header'>{param}</span>
                     {availableRoutes.map((route) => {
                         return (
-                        <div key={route.id}>{route[availableRoutesKeys[i]]}</div>                        
-                    )})}
+                            <div key={route.id}>{route[availableRoutesKeys[i]]}</div>                        
+                        )})}
                 </div>
             )
         })}

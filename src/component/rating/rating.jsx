@@ -24,6 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
+
 const HoverRating = () => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(-1);
@@ -32,20 +33,18 @@ const HoverRating = () => {
 
   return (
     <>
-    <div className = 'tc'>
-      <ol className='heading'>Please rate the app</ol>     
-      <div className={classes.rating}>        
-        <Rating name="hover-feedback" value={rating} size="large" max={10} onChange={(event, newRating) => { setRating(newRating); }}      
-        //onChangeActive={(event, newHover) => { setHover(newHover); }}
-        />
-        {rating !== null && <Box ml={2}>{labels[hover !== -1 ? hover : rating]}
-        </Box>}      
-      </div>                   
-    </div>
-
-    <div className='information3'>
-      <Column />
-    </div> 
+      <div className = 'tc'>
+        <ol className='heading'>Please rate the app</ol>     
+        <div className={classes.rating} >        
+          <Rating name="hover-feedback" value={rating} size="large" max={10} onChange={(event, newRating) => { setRating(newRating); }} />
+          {rating !== null && <Box ml={2}>{labels[hover !== -1 ? hover : rating]} </Box>}      
+        </div>
+        <div className='rating'> {rating} / 10  </div>                  
+      </div>
+      <div className='information3'>
+        <div className='note'>(I can't see the ratings)</div>
+        <Column />
+      </div> 
     </>      
   );
 }

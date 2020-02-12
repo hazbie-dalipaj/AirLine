@@ -36,7 +36,7 @@ const FormCheckInCard = () => {
   return(
     <>     
       <form className='form'>
-      <h2>What's your next destination ?</h2>
+        <h2>What's your next destination ?</h2>
         <CardForm onSetValue={onSetValue}  />  <Link to={url3}><button className='search-flights'>Search Flights</button></Link>
       </form>
       <div className='information2'>

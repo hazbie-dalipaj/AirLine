@@ -7,15 +7,14 @@ import Column from '../copyright/column';
 const FlightsPageReturn = ({from, to, departure, retur, cabine}) => {
     const [flightsData, useFlightsData] = useState(FLIGHTS_DATA);
     console.log('FLIGHTS DATA', from, to, departure, retur, cabine)
-
     return(
-         <>            
-        <h4 className='title'>Choose the flights you want</h4>
-        <h5><li style={{color: 'black'}}>Results:</li></h5>
+        <>            
+            <h4 className='title'>Choose the flights you want</h4>
+            <h5><li style={{color: 'black'}}>Results:</li></h5>
             <>        
-        {flightsData.map(({id, ...otherCollectionProps}) => (
-                <FlightsDataPreviewReturn key={id} {...otherCollectionProps} from={from} to={to} departure={departure} retur={retur} cabine={cabine} />                
-            ))}                    
+                {flightsData.map(({id, ...otherCollectionProps}) => (
+                    <FlightsDataPreviewReturn key={id} {...otherCollectionProps} from={from} to={to} departure={departure} retur={retur} cabine={cabine} />                
+                ))}                    
             </>
             <div className='information2'>
                 <Column />

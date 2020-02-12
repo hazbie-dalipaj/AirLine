@@ -37,7 +37,7 @@ class Register extends React.Component{
                 email:'',
                 password:'',
                 repassword:''
-        })
+            })
 		}catch(error){
 			console.error(error);
 		}
@@ -56,8 +56,7 @@ class Register extends React.Component{
                     <span >Please fill in this form to create an account.</span> 
                 </div>
                 <br /> <br />
-                <form className='bord' onSubmit={this.handleSubmit}>
-                    <div className='container'>
+                <form className='bord' onSubmit={this.handleSubmit}>                   
                         <label>First Name</label>
                         <FormInput type='text' placeholder='enter your name' name='name' value={this.state.name} onChange={this.handleChange} required />
                         <br /><br/>
@@ -80,15 +79,14 @@ class Register extends React.Component{
 
                         <label>Re-Password</label>
                         <FormInput type='password' placeholder='enter your password' name='repassword' value={this.state.repassword} onChange={this.handleChange} required />
-                        <Link to='/rating'><button type="submit">Register</button></Link>
+                        <button type="submit">Register</button>
                         <br></br><br></br>
                         
                         <span>Have an account? Click <Link to='/signin'>here</Link></span>
-                    </div>
                 </form>
-            <div className='information1'>
-                <Column />
-            </div>
+                <div className='information1'>
+                    <Column />
+                </div>
             </>     
         )
     }

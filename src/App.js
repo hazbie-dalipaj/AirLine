@@ -25,7 +25,7 @@ class App extends React.Component {
   unsubscribeFormAuth = null;
 
   componentDidMount(){
-    this.unsubscribeFormAuth = auth.onAuthStateChanged(async userAuth => {
+    this.unsubscribeFormAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth){
         const userRef = await createUserProfileDocument(userAuth);
         userRef.onSnapshot(snapShot => {
@@ -46,73 +46,69 @@ class App extends React.Component {
   
   render() {
     return (
-    <div className="App">
-      <Header currentUser={this.state.currentUser} />      
-      <Switch>                  
-        <Route exact path='/' component={HomePage} />  
-        <Route path='/flights' component={PageFlights} />
-        <Route path='/signin' component={Signin} />
-        <Route path='/register' component={Register} />  
-        <Route path='/users-data' component={DetailsUsers} />
-        <Route path='/card-flights' component={FormCheckInCard} />
+      <div className="App">
+        <Header currentUser={this.state.currentUser} />      
+        <Switch>                  
+          <Route exact path='/' component={HomePage} />  
+          <Route path='/flights' component={PageFlights} />
+          <Route path='/signin' component={Signin} />
+          <Route path='/register' component={Register} />  
+          <Route path='/users-data' component={DetailsUsers} />
+          <Route path='/card-flights' component={FormCheckInCard} />
 
-
-        <Route path='/search-flights-by-company/:param1/:param2/:param3' render={({match}) =>{
-          const pathParams = {};
+          <Route path='/search-flights-by-company/:param1/:param2/:param3' render={({match}) =>{
+            const pathParams = {};
             Object.values(match.params).forEach((param)=>{
               const splitedParam = param.split(':');
               pathParams[splitedParam[0]] = splitedParam[1];             
             });
-
-          return (
-            <FlightsPageCard
-              from={pathParams.from}
-              to={pathParams.to}
-              company={pathParams.company}
-            />
-          );
-        } } />
+            return (
+              <FlightsPageCard
+                from={pathParams.from}
+                to={pathParams.to}
+                company={pathParams.company}
+              />
+            );
+          } } />
         
-        <Route path='/search-one-way-flights/:param1/:param2/:param3/:param4' render={({match}) =>{
-          const pathParams = {};
+          <Route path='/search-one-way-flights/:param1/:param2/:param3/:param4' render={({match}) =>{
+            const pathParams = {};
             Object.values(match.params).forEach((param)=>{
               const splitedParam = param.split(':');
               pathParams[splitedParam[0]] = splitedParam[1];
             });
+            return (
+              <FlightsPage
+                from={pathParams.from}
+                to={pathParams.to}
+                departure={pathParams.departure}
+                cabine={pathParams.cabine}
+              />
+            );
+          } } />
 
-          return (
-            <FlightsPage
-              from={pathParams.from}
-              to={pathParams.to}
-              departure={pathParams.departure}
-              cabine={pathParams.cabine}
-            />
-          );
-        } } />
-
-
-        <Route path='/search-return-flights/:parametr1/:parametr2/:parametr3/:parametr4/:parametr5' render={({match}) =>{
-          const pathParams = {};
+          <Route path='/search-return-flights/:parametr1/:parametr2/:parametr3/:parametr4/:parametr5' render={({match}) =>{
+            const pathParams = {};
             Object.values(match.params).forEach((param)=>{
               const splitedParam = param.split(':');
               pathParams[splitedParam[0]] = splitedParam[1];
             });
+            return (
+              <FlightsPageReturn 
+                from={pathParams.from}
+                to={pathParams.to}
+                departure={pathParams.departure}
+                retur={pathParams.retur}
+                cabine={pathParams.cabine}
+              />
+            );
+          } } />
 
-          return (
-            <FlightsPageReturn 
-              from={pathParams.from}
-              to={pathParams.to}
-              departure={pathParams.departure}
-              retur={pathParams.retur}
-              cabine={pathParams.cabine}
-            />
-          );
-        } } />
-        <Route path='/request-rating' component={RequestRating} />
-        <Route path='/rating' component={HoverRating} />
-      </Switch> 
-    </div>
-  );
+          <Route path='/request-rating' component={RequestRating} />
+          <Route path='/rating' component={HoverRating} />
+        </Switch> 
+      </div>
+    );
   }  
 }
 export default App;

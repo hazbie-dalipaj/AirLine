@@ -13,7 +13,7 @@ class PageFlights extends Component {
                     <FormCheckIn />
                 </div>
                 <div className='flights'>
-                <h1 className='title'>Countries to travel</h1>
+                    <h1 className='title'>Countries to travel</h1>
                     <DirectoryMenu />                
                 </div>                
                 <div className='map-flights'>

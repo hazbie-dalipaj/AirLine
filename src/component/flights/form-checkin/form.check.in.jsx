@@ -15,7 +15,7 @@ const FormCheckIn = () => {
   const [departure, setDeparture] = useState(null);
   const [retur, setRetur] = useState(null);
   const [cabine, setCabine] = useState(null);
-
+  
   const handleChange = event => {
     setValue(event.target.value);
   };

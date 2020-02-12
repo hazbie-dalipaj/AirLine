@@ -2,8 +2,7 @@ import React from 'react';
 import '../form-oneway/flights-data-preview.scss';
 import FlightDataParametersReturn from './flights.data.parametrs.return';
 
-const FlightsDataPreviewReturn = ({country, routes, from, to, departure, retur,  cabine}) => {
-    
+const FlightsDataPreviewReturn = ({routes, from, to, departure, retur,  cabine}) => {   
     const availableRoutes = routes.filter((route, i) => route.from === from && route.to === to && route.departure === departure && route.retur === retur  && route.cabine[i] === cabine);
     console.log('availableRoutes', availableRoutes);
 
@@ -14,7 +13,7 @@ const FlightsDataPreviewReturn = ({country, routes, from, to, departure, retur, 
                 <FlightDataParametersReturn availableRoutes={availableRoutes} />
             </div>
         </div>       
-    : null
-);
+        : null
+    );
 }
 export default FlightsDataPreviewReturn;

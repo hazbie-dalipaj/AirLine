@@ -14,9 +14,6 @@ input[type=text], input[type=password], input[type=email] {
 button:hover {
   opacity: 0.8;
 }
-.container {
-  padding: 16px;
-}
 
 .row{
 display: flex;

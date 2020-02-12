@@ -5,15 +5,13 @@ import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
 
 const useStyles = makeStyles(theme => ({
-        formControl: {
-          margin: theme.spacing(5),
-          minWidth: 10,
-        },
+  formControl: {
+  margin: theme.spacing(5),
+  minWidth: 10,
+  },
 }));
 
-const CardForm = ({
-  onSetValue,
-}) => {
+const CardForm = ({ onSetValue }) => {
   const [state, setState] = useState({
     FromCountry: '',
     name: '',
@@ -23,37 +21,36 @@ const CardForm = ({
 
   const handleChange = name => event => {
     const value = event.target.value;
-    onSetValue(name, value);
-    
+    onSetValue(name, value);    
     setState({
       ...state,
       [name]: value,
     });
   };
 
-    return(
-        <div className='return'>
-          <FormControl className={useStyles().formControl}>
-          <FormHelperText>From</FormHelperText>
-          <NativeSelect 
-            value={state.country}
-            onChange={handleChange('FromCountry')}
-          >
-            <option>None</option>
-            <option>Canada</option>
-            <option>China</option>
-            <option>England</option>
-            <option>Germany</option>
-            <option>Italy</option>
-            <option>Portugal</option>
-          </NativeSelect>
-        </FormControl>
+  return(
+    <div className='return'>
+      <FormControl className={useStyles().formControl}>
+        <FormHelperText>From</FormHelperText>
+        <NativeSelect 
+          value={state.country}
+          onChange={handleChange('FromCountry')}
+        >
+          <option>None</option>
+          <option>Canada</option>
+          <option>China</option>
+          <option>England</option>
+          <option>Germany</option>
+          <option>Italy</option>
+          <option>Portugal</option>
+        </NativeSelect>
+      </FormControl>
         
-        <FormControl className={useStyles().formControl}>
-          <FormHelperText >To</FormHelperText>
-          <NativeSelect 
-            value={state.ToCountry}
-            onChange={handleChange('ToCountry')}
+      <FormControl className={useStyles().formControl}>
+        <FormHelperText >To</FormHelperText>
+        <NativeSelect 
+          value={state.ToCountry}
+          onChange={handleChange('ToCountry')}
           >
             <option>None</option>
             <option>Canada</option>
@@ -62,10 +59,10 @@ const CardForm = ({
             <option>Germany</option>
             <option>Italy</option>
             <option>Portugal</option>
-          </NativeSelect>
-        </FormControl>
+        </NativeSelect>
+      </FormControl>
 
-    <FormControl className={useStyles().formControl}>
+      <FormControl className={useStyles().formControl}>
         <FormHelperText>Company</FormHelperText>
         <NativeSelect
           value={state.Company}
@@ -84,7 +81,7 @@ const CardForm = ({
           <option>United</option>
         </NativeSelect>
       </FormControl>  
-        </div>
-    )
+    </div>
+  )
 }
 export default CardForm;

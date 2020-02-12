@@ -14,7 +14,6 @@ function HomeIcon(props) {
     </SvgIcon>
   );
 }
-
 const Header = ({currentUser}) => {
   return(
     <div className='header'>
@@ -25,20 +24,26 @@ const Header = ({currentUser}) => {
         <Link className='option' to='/flights'>
           <button className='header-button'><FlightTakeoffIcon/> Flights</button>
         </Link>
-        <Link className='option' to='/request-rating'>
-          <button className='header-button'><StarIcon/> Rating</button>
-        </Link>
         {currentUser ? (
 		      <div className='option' onClick={() => auth.signOut()}>
-
-		      <button className='header-button'><PersonIcon /> Sign Out</button>
+		        <button className='header-button'><StarIcon /> Sign Out</button>
 		      </div>
 		      ):(		
-          <Link className='option' to='/signin' >
-            <button className='header-button'><PersonIcon /> Log in</button>
-          </Link>
+            <Link className='option' to='/request-rating' >
+              <button className='header-button'><StarIcon /> Rating</button>
+            </Link>
+		    )}  
+        {currentUser ? (
+		      <div className='option' onClick={() => auth.signOut()}>
+		        <button className='header-button'><PersonIcon /> Sign Out</button>
+		      </div>
+		      ):(		
+            <Link className='option' to='/signin' >
+              <button className='header-button'><PersonIcon /> Log in</button>
+            </Link>
 		    )}     
       </div>
     </div>
-  );}
+  );
+}
 export default Header;

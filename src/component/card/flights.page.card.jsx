@@ -12,9 +12,9 @@ const FlightsPageCard = ({from, to, company}) => {
             <h4 className='title'>Choose the flights you want</h4>
             <h5><li style={{color: 'black'}}>Results:</li></h5>
             <>        
-            {flightsData.map(({id, ...otherCollectionProps}) => (
-                <FlightsDataPreviewCard key={id} {...otherCollectionProps} from={from} to={to} company={company} />                
-            ))}                    
+                {flightsData.map(({id, ...otherCollectionProps}) => (
+                    <FlightsDataPreviewCard key={id} {...otherCollectionProps} from={from} to={to} company={company} />                
+                ))}                    
             </>
             <div className='information2'>
                 <Column />

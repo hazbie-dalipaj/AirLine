@@ -23,7 +23,6 @@ const DetailsUsers = () => {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [phone, setPhone] = useState(null);
-
   function getSteps() {
     return ['Complete your details', 'Control you details', 'Payment'];
   }
@@ -45,42 +44,42 @@ const DetailsUsers = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
   };  
 
-  console.log(`name is ${name}`);
-  console.log(`email is ${email}`);
-  console.log(`phone is ${phone}`);
-
   const handleBack = () => {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   };
 
+  console.log(`name is ${name}`);
+  console.log(`email is ${email}`);
+  console.log(`phone is ${phone}`);
+
   return (
     <>
-    <div className={classes.root}>
-      <h4 className='title'>Please, complete all fields</h4> <hr />
-      <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map((label, index) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-            <StepContent>
-              <>{getStepContent(index)}</>
-                <>
-                  <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}> Back </Button>                   
-                  <Button variant="contained" value='next' color="primary" disabled={!name || !email || !phone } onClick={handleNext} className={classes.button} >
-                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}     
-                  </Button>
-                </>
-            </StepContent>
-          </Step>
-        ))}
-      </Stepper>
-      {activeStep === steps.length && (
-        <Paper square elevation={0} className={classes.resetContainer}>
-          <Typography> Your payment is complete! Nice Trip!</Typography>
-        </Paper>)}
-    </div>
-    <div className='information2'>
-      <Column />
-    </div>
+      <div className={classes.root}>
+        <h4 className='title'>Please, complete all fields</h4> <hr />
+        <Stepper activeStep={activeStep} orientation="vertical">
+          {steps.map((label, index) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+              <StepContent>
+                <>{getStepContent(index)}</>
+                  <>
+                    <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}> Back </Button>                   
+                    <Button variant="contained" value='next' color="primary" disabled={!name || !email || !phone } onClick={handleNext} className={classes.button} >
+                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}     
+                    </Button>
+                  </>
+              </StepContent>
+            </Step>
+          ))}
+        </Stepper>
+        {activeStep === steps.length && (
+          <Paper square elevation={0} className={classes.resetContainer}>
+            <Typography> Your payment is complete! Nice Trip!</Typography>
+          </Paper>)}
+      </div>
+      <div className='information2'>
+        <Column />
+      </div>
     </>
   );
 }

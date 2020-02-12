@@ -2,7 +2,7 @@ import React from 'react';
 import '../flights/form-checkin/form/form-oneway/flights-data-preview.scss'
 import FlightDataParametersCard from './flights.data.parametrs.card';
 
-const FlightsDataPreviewCard = ({country, routes, from, to, company}) => {
+const FlightsDataPreviewCard = ({ routes, from, to, company}) => {
     
     const availableRoutes = routes.filter((route, i) => route.from === from && route.to === to && route.company === company);
     console.log('availableRoutes', availableRoutes);
@@ -14,7 +14,7 @@ const FlightsDataPreviewCard = ({country, routes, from, to, company}) => {
                 <FlightDataParametersCard availableRoutes={availableRoutes} />
             </div>
         </div>       
-    : null
-);
+        : null
+    );
 }
 export default FlightsDataPreviewCard;
