@@ -26,7 +26,7 @@ const ControlDetail = () => {
           </RadioGroup>
         </FormControl>
         {value==='yes' && <ol>Continue to next step</ol>}
-        {value==='no' && <ol>Please, rewite your details on setp 1</ol>}
+        {value==='no' && <ol>Please, rewrite your details on setp 1</ol>}
       </div>
     )
 }
