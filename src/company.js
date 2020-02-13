@@ -13,7 +13,7 @@ export const company = [
     {
       id: 3,
       name: 'Aegean',
-      companyUrl: 'https://seekvectorlogo.com/wp-content/uploads/2018/05/aegean-airlines-vector-logo.png'
+      companyUrl: 'https://lh3.googleusercontent.com/proxy/sA5wNUgxyGO2jU0xJNP1yAOs1oG_U7popLewOlrU5nzisxIbOerju5GU9ngXF5UmFN7-Nbc7CArHE40M3UaB1TKnSSxK96ETbPV6idhOGdjO1SWrgVblQhq8q4LQBZ-_6MCmId_Aei6hL-cn'
         
       },
       {
@@ -35,7 +35,7 @@ export const company = [
       {
         id: 7,
         name: 'Lufthansa',
-        companyUrl: 'https://seekvectorlogo.com/wp-content/uploads/2017/12/lufthansa-vector-logo.png'
+        companyUrl: 'https://airlinedetail.com/wp-content/uploads/2015/03/lufthansa-logo.jpg'
       },      
       {
         id: 8,
