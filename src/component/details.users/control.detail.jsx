@@ -1,33 +1,33 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 
 const ControlDetail = () => {
-  const [value, setValue] = useState('yes');
+  const [answer, setAnswer] = useState('yes');
   const handleChange = event => {
-    setValue(event.target.value);
+    setAnswer(event.target.value);
+    switch(answer) {}
   };
-  console.log(`value is ${value}`);
+  console.log(`value is ${answer}`);
 
-    return(
-      <div>
-        <ol className='heading'>Are correct your detail?</ol>
-        <FormControl >
-          <RadioGroup value={value} onChange={handleChange} >
-            <FormControlLabel value="yes" control={<Radio color="default" />} label="Yes" />
-          </RadioGroup>
-        </FormControl>
-        
-        <FormControl >
-          <RadioGroup value={value} onChange={handleChange} >
-            <FormControlLabel value="no" control={<Radio color="default" />} label="No" />
-          </RadioGroup>
-        </FormControl>
-        {value==='yes' && <ol>Continue to next step</ol>}
-        {value==='no' && <ol>Please, rewrite your details on setp 1</ol>}
-      </div>
-    )
+  return(
+    <div>
+      <ol className='heading'>Are correct your detail?</ol>
+      <FormControl >
+        <RadioGroup value={answer} onChange={handleChange} >
+          <FormControlLabel value="yes" control={<Radio color="default" />} label="Yes" />
+        </RadioGroup>
+      </FormControl>       
+      <FormControl >
+        <RadioGroup value={answer} onChange={handleChange} >
+          <FormControlLabel value="no" control={<Radio color="default" />} label="No" />
+        </RadioGroup>
+      </FormControl>
+      {answer==='yes' && <ol>Continue to next step</ol>}
+      {answer==='no' && <ol>Please, rewrite your details on setp 1</ol>}
+    </div>
+  )
 }
 export default ControlDetail;

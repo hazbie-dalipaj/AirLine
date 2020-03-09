@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -9,8 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import PersonalDetail from './personal.detail';
 import ControlDetail from './control.detail';
-import Payment from '../flights/payment/payment';
-import Column from '../copyright/column';
+import Payment from '../payment/payment';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -26,16 +25,14 @@ const DetailsUsers = () => {
   function getSteps() {
     return ['Complete your details', 'Control you details', 'Payment'];
   }
-
   function getStepContent (step) {
     switch (step) {
       case 0: return <PersonalDetail onNameChange={(name)=> setName(name)} onEmailChange={(email)=> setEmail(email)} onPhoneChange={(phone)=> setPhone(phone)} />;
       case 1: return <ControlDetail  />  ;      
       case 2: return <Payment/>; 
-      default: return 'Unknown step'
+      default: return ''
     }    
   }
-
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -43,15 +40,12 @@ const DetailsUsers = () => {
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
   };  
-
   const handleBack = () => {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   };
-
   console.log(`name is ${name}`);
   console.log(`email is ${email}`);
   console.log(`phone is ${phone}`);
-
   return (
     <>
       <div className={classes.root}>
@@ -62,23 +56,21 @@ const DetailsUsers = () => {
               <StepLabel>{label}</StepLabel>
               <StepContent>
                 <>{getStepContent(index)}</>
-                  <>
-                    <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}> Back </Button>                   
-                    <Button variant="contained" value='next' color="primary" disabled={!name || !email || !phone } onClick={handleNext} className={classes.button} >
-                      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}     
-                    </Button>
-                  </>
+                <>
+                  <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}> Back </Button>                   
+                  <Button variant="contained" value='next' color="primary" disabled={!name || !email || !phone } onClick={handleNext} className={classes.button} >
+                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}     
+                  </Button>
+                </>
               </StepContent>
             </Step>
           ))}
         </Stepper>
         {activeStep === steps.length && (
           <Paper square elevation={0} className={classes.resetContainer}>
-            <Typography> Your payment is complete! Nice Trip!</Typography>
+            <Typography> Your payment is complete! Nice Trip!
+            </Typography>
           </Paper>)}
-      </div>
-      <div className='information2'>
-        <Column />
       </div>
     </>
   );

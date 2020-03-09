@@ -1,39 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './register.css';
-import {Link} from 'react-router-dom'
-import FormInput from '../form-input/form.input';
-import {auth, createUserProfileDocument} from '../../firebase/firebase.utils';
-import Column from '../copyright/column';
+import { Link } from 'react-router-dom'
+import FormInput from '../form.input/form.input';
+import { auth, createUserProfileDocument, signInWithGoogle } from '../../firebase/firebase.utils';
 
-class Register extends React.Component{
-    constructor(){
-        super();
-        this.state={
-            name:'',
-            surname:'',
-            username:'',
-            email:'',
-            password:'',
-            repassword:''
-        }
-    }
+const Register = () => {
+    const [state, setState] = useState({
+        name: '',
+        email: '',
+        password: '',
+        repassword: ''
+    })
+    console.log(`name is ${state.name}`);
+    console.log(`email is ${state.email}`);
+    console.log(`password is ${state.password}`);
+    console.log(`repassword is ${state.repassword}`);
 
-    handleSubmit = async event => {
+    const handleSubmit = async event => {
         event.preventDefault();    
-        const { name, surname, username, email, password, repassword } = this.state;   
+        const { name, email, password, repassword } = state;   
         if (password !== repassword) {
           alert("passwords don't match");
           return;
         }
 		try{
 			const {user} = await auth.createUserWithEmailAndPassword(email, password);
-			await createUserProfileDocument(user, {name});
-            await createUserProfileDocument(user, {surname});
-            await createUserProfileDocument(user, {username});			
-			this.setState({
+			await createUserProfileDocument(user, {name});			
+			setState({
                 name:'',
-                surname:'',
-                username:'',
                 email:'',
                 password:'',
                 repassword:''
@@ -42,54 +36,46 @@ class Register extends React.Component{
 			console.error(error);
 		}
     }
-	
-	handleChange = event => {
-        const {value, name } = event.target;
-        this.setState({ [name]: value })
-    }
+    const handleChange = name => event => {
+        const value = event.target.value;
+        setState({
+          ...state,
+          [name]: value,
+        });
+    };
 
-    render(){
-        return(
-            <>
-                <div className='cent'>
-                   <h2 >Register</h2>
-                    <span >Please fill in this form to create an account.</span> 
-                </div>
+    return (
+        <>
+            <div className='cent'>
+                <h2 >Register</h2>
+                <span >Please fill in this form to create an account.</span> 
                 <br /> <br />
-                <form className='bord' onSubmit={this.handleSubmit}>                   
-                        <label>First Name</label>
-                        <FormInput type='text' placeholder='enter your name' name='name' value={this.state.name} onChange={this.handleChange} required />
-                        <br /><br/>
+                <form className='board br4 pa2 ma4 dib shadow-2' onSubmit = {handleSubmit}>
+                    <div className='imgcontainer'>
+                        <img className='avantar' alt='' src='https://cdn2.iconfinder.com/data/icons/audio-16/96/user_avatar_profile_login_button_account_member-512.png'  />
+                    </div>  
+                                     
+                    <h6 className='margin'></h6>Name - Surname
+                    <FormInput type='text' placeholder='enter your name and surname' name='name' value={state.name} onChange={handleChange('name')} required />
 
-                        <label>Last Name</label>
-                        <FormInput type='text' placeholder='enter your surname' name='surname' value={this.state.surname} onChange={this.handleChange} required />
-                        <br /><br/>
+                    <h6 className='margin'></h6>Email
+                    <FormInput type='email' placeholder='enter your email' name='email' value={state.email} onChange={handleChange('email')} required />
 
-                        <label>Username</label>
-                        <FormInput type='text' placeholder='enter your username' name='username' value={this.state.username} onChange={this.handleChange} required />
-                        <br /><br/>
+                    <h6 className='margin'></h6>Password
+                    <FormInput type='password' placeholder='enter your password' name='password' value={state.password} onChange={handleChange('password')} required />
 
-                        <label>Email</label>
-                        <FormInput type='email' placeholder='enter your email' name='email' value={this.state.email} onChange={this.handleChange} required />
-                        <br /><br/>
-
-                        <label>Password</label>
-                        <FormInput type='password' placeholder='enter your password' name='password' value={this.state.password} onChange={this.handleChange} required />
-                        <br /><br />
-
-                        <label>Re-Password</label>
-                        <FormInput type='password' placeholder='enter your password' name='repassword' value={this.state.repassword} onChange={this.handleChange} required />
-                        <button>Register</button>
-                        
-                        <br></br><br></br>
-                        
-                        <span>Have an account? Click <Link to='/signin'>here</Link></span>
+                    <h6 className='margin'></h6>Re-Password
+                    <FormInput type='password' placeholder='enter your password' name='repassword' value={state.repassword} onChange={handleChange('repassword')} required />
+                    
+                    <button className='grow br4'>Register</button>
+                    <h5 className='spn'>or continue with</h5>                  
+                    <img className='em' alt='' 
+				        src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png'
+					    onClick={signInWithGoogle} />                           
+                    <h5>Have an account? Click <Link to='/signin'>here</Link></h5>
                 </form>
-                <div className='information1'>
-                    <Column />
-                </div>
-            </>     
-        )
-    }
+            </div>
+        </>
+    )
 }
 export default Register;

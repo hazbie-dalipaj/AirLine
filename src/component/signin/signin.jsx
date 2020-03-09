@@ -1,75 +1,59 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 import './signin.css';
-import {Link} from 'react-router-dom';
-import FormInput from '../form-input/form.input';
+import { Link } from 'react-router-dom';
+import FormInput from '../form.input/form.input';
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
-import Column from '../copyright/column';
 
-class Signin extends Component{
-    constructor(){
-        super()
-        this.state={
-          email:'',
-          password:''
-        }
-    }
+const Signin = () => {
+    const [state, setState] = useState({
+        email:'',
+        password:''
+    })
 
-    handleSubmit = async event => {
+    const handleSubmit = async event => {
         event.preventDefault();
-        const {email,password}=this.state;
+        const {email,password} = state;
         try{
             await auth.signInWithEmailAndPassword(email, password);
-            this.setState({email:'', password:''});
+            setState({ email:'', password:'' });
         }catch(error){
             console.log(error);
         }   
-      }
-
-    handleChange = event => {
-        const {value, name } = event.target;
-        this.setState({ [name]: value })
     }
-
-    render(){
-        return(
-            <>
-                <div className='cent'>
-                   <h2 >Sign In</h2>
-                    <span >Sign in with your email and password </span> 
-                </div>
-                <br /> <br />
-                <form className='bord' onSubmit={this.handleSubmit}>
+    const handleChange = name => event => {
+    const value = event.target.value;
+    setState({
+      ...state,
+      [name]: value,
+    });
+  };
+    return(
+        <>
+            <div className = 'cent'>
+                <h2 >Sign In</h2>
+                <span >Sign in with your email and password </span> 
+                <br/> <br />
+                <form className='board br4 pa2 ma4 dib shadow-2' onSubmit={handleSubmit}>
                     <div className='imgcontainer'>
                         <img className='avantar' alt='' src='https://cdn2.iconfinder.com/data/icons/audio-16/96/user_avatar_profile_login_button_account_member-512.png'  />
                     </div>
                     <div className='container'>
-                        <label>Email</label>
-                        <FormInput type='text' placeholder='enter your email' name='email' value={this.state.email} onChange={this.handleChange} required />
-                        <br /><br/>
+                        <h6 className='margin'></h6>Email
+                        <FormInput type='text' placeholder='enter your email' name='email' value={state.email} onChange={handleChange('email')} required />
 
-                        <label>Password</label>
-                        <FormInput type='password' placeholder='enter your password' name='password' value={this.state.password} onChange={this.handleChange} required />
-                        <br /><br />
-
-                        <button type="submit">Login</button>
-                        <br /><br />
-
-                        <span className='spn'>or continue with</span>
-                        <br /><br />
-
+                        <h6 className='margin'></h6>Password
+                        <FormInput type='password' placeholder='enter your password' name='password' value={state.password} onChange={handleChange('password')} required />
+                        
+                        <button className='grow br4'>Login</button>
+                        <h5>or continue with</h5>
                         <img className='em' alt='' 
-					        src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png'
-						    onClick={signInWithGoogle} />
-                        <br /><br />
-                        <span>Don't have an account? Click <Link to='/register'>here</Link></span>
+				            src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png'
+					        onClick={signInWithGoogle} />
+                        <h5>Don't have an account? Click <Link to='/register'>here</Link></h5>
                     </div>
                 </form>
-                <div className='information1'>
-                   <Column /> 
-                </div>
-                
-            </>            
-        )
-    }
+            </div>           
+        </>
+    )
 }
 export default Signin;

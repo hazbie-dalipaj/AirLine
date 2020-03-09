@@ -1,9 +1,20 @@
-import React, {useState} from 'react';
-import CardForm from './card.form';
-import {Link} from 'react-router-dom';
-import Column from '../copyright/column';
+import React, { useState } from 'react';
+import FormCard from './form.card';
+import { Link } from 'react-router-dom';
+import ParticleField from 'react-particles-webgl';
 
 const FormCheckInCard = () => {
+  const config = {
+    lines: {
+      minDistance: 80,
+    },
+    particles: {
+      transparency: 0.6,
+      shape: 'circle',
+      count: 200,
+      maxSize: 50,
+    },
+  };
   const [from, setFrom] = useState(null);
   const [to, setTo] = useState(null);
   const [company, setCompany] = useState(null);
@@ -12,16 +23,16 @@ const FormCheckInCard = () => {
   const onCompanyChange = (company) => setCompany(company);
   console.log(`the from value ${from}`);
   console.log(`the to value ${to}`);
-  console.log(`the company date ${company}`);
+  console.log(`the company ${company}`);
   const url3 = `/search-flights-by-company${from ? `/from:${from}`: ''}${to ? `/to:${to}`: ''}${company ? `/company:${company}`: ''}`;
 
   const onSetValue = (type, value) => {
     switch(type){
-      case 'FromCountry':{
+      case 'FromCountry': {
         onFromChange(value);
         break;
       }
-      case 'ToCountry':{
+      case 'ToCountry': {
         onToChange(value);
         break;
       }
@@ -34,15 +45,14 @@ const FormCheckInCard = () => {
   };
 
   return(
-    <>     
-      <form className='form'>
+    <div className='tc'>    
+      <form className='form br4 pa2 ma4 dib shadow-2'>
         <h2>What's your next destination ?</h2>
-        <CardForm onSetValue={onSetValue}  />  <Link to={url3}><button className='search-flights'>Search Flights</button></Link>
+        <FormCard onSetValue={onSetValue}  />
+        <Link to={url3}><button disabled={!from || !to || !company } className='search-flights grow br4'>Search Flights</button></Link>
       </form>
-      <div className='information2'>
-        <Column />
-      </div>      
-    </>
+      <ParticleField config={config} />
+    </div>
   )
 }
 export default FormCheckInCard;

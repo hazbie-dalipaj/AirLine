@@ -1,24 +1,20 @@
-import React, {useState} from 'react';
-import FLIGHTS_DATA from '../collection-flights/flights_data';
-import FlightsDataPreviewCard from './flights.data.preview.card';
-import '../collection-flights/flights_page.scss';
-import Column from '../copyright/column';
+import React, { useState } from 'react';
+import FLIGHTS_DATA from '../flights/flights_data';
+import FlightsDataPreview from '../flights/form-checkin/flights.data.forms/flights.data.preview';
+import '../flights/form-checkin/form.oneway/flights.page.scss';
 
-const FlightsPageCard = ({from, to, company}) => {
+const FlightsPageCard = ({ from, to, company }) => {
     const [flightsData, useFlightsData] = useState(FLIGHTS_DATA);
-    console.log('FLIGHTS DATA', from, to, company)
+    console.log('FLIGHTS DATA', from, to, company )
     return(
         <>            
-            <h4 className='title'>Choose the flights you want</h4>
-            <h5><li style={{color: 'black'}}>Results:</li></h5>
+            <h4 className='titleflight'>Choose the flights you want</h4>
+            <h5><li style={{color: 'black', margin: '60px'}}>Results:</li></h5>
             <>        
                 {flightsData.map(({id, ...otherCollectionProps}) => (
-                    <FlightsDataPreviewCard key={id} {...otherCollectionProps} from={from} to={to} company={company} />                
+                    <FlightsDataPreview key={id} {...otherCollectionProps} from={from} to={to} company={company} />                
                 ))}                    
             </>
-            <div className='information2'>
-                <Column />
-            </div>
         </>
     )
 }

@@ -39,12 +39,12 @@ class PersonalDetail extends Component {
     render(){
         return(
             <>           
-                <form className='bord' onSubmit={this.handleSubmit} action='form.php' method='get' >
+                <form className='board tc br4 pa2 ma4 dib shadow-2' onSubmit={this.handleSubmit} >
                     <h2>Your Details </h2>
                     <img className='avantar' alt='' src='https://cdn2.iconfinder.com/data/icons/audio-16/96/user_avatar_profile_login_button_account_member-512.png'  />
-                    <input type='text' placeholder='NAME SURNAME' name='name' value={this.state.name} onChange={this.hadleChange} required/>
-                    <input type='text' placeholder='Email Address' name='email' value={this.state.email} onChange={this.hadleChange} required/>
-                    <input type='tel' placeholder='Phone' name='phone' value={this.state.phone} onChange={this.hadleChange} required/>
+                    <input type='text' placeholder='NAME SURNAME*' name='name' value={this.state.name} onChange={this.hadleChange} required/>
+                    <input type='text' placeholder='Email Address*' name='email' value={this.state.email} onChange={this.hadleChange} required/>
+                    <input type='tel' placeholder='Phone*' name='phone' value={this.state.phone} onChange={this.hadleChange} required/>
                 </form>
                 <ol className='heading'>Please controll your details to payment later</ol> 
                 <li >Your name is: <a className='heading2'>{this.state.name}</a></li>

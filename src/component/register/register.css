@@ -1,27 +1,18 @@
-.bord{
-  border: 10px solid #f1f1f1;
-  padding: 2px 150px;
-}
-
 input[type=text], input[type=password], input[type=email] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 10px;
   border: 1px solid #f1f1f1;
+  background: linear-gradient(to bottom right, rgb(255, 255, 255) 40%, #fcf4fc 65%);
 }
 
-
-button:hover {
-  opacity: 0.8;
+input[type=tel] {
+  padding: 12px 20px;
+  border: 1px solid #f1f1f1;
+  background: linear-gradient(to bottom right, rgb(255, 255, 255) 40%, #fcf4fc 65%);
 }
 
 .row{
 display: flex;
-box-sizing: border-box;
-}
-
-.column{
-flex: 50%;
-padding: 10px;
 box-sizing: border-box;
 }

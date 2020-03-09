@@ -1,21 +1,11 @@
 .cent{
   text-align: center;
 }
-.bord{
-  border: 10px solid #f1f1f1;
-  width: 50%;
-  text-align: center;
-  background-color: #F0FFFF;
-  margin: 0 auto;
+
+.board{
+  background: linear-gradient(to bottom right, rgb(240, 248, 255) 40%, #fcf4fc 65%);
 }
 
-input[type=email], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #f1f1f1;
-}
 button {
   background-color: lightskyblue;
   color: white;
@@ -23,9 +13,6 @@ button {
   width: 22%;
 }
 
-button:hover {
-  opacity: 0.8;
-}
 .container {
   padding: 16px;
 }
@@ -33,6 +20,7 @@ button:hover {
 .imgcontainer {
   text-align: center;
 }
+
 img.avantar {
   width: 12%;
 }
@@ -41,9 +29,6 @@ img.avantar {
   width: 3.5%;
 }
 
-.information1{
-  margin-top: 140px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
+.margin{
+  margin-bottom: 40px;
 }
