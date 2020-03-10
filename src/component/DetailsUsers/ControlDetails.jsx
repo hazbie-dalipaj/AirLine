@@ -15,6 +15,7 @@ const ControlDetail = () => {
   return(
     <div>
       <ol className='heading'>Are correct your detail?</ol>
+      <ol className='heading'>Please controll your details to payment later</ol>  
       <FormControl >
         <RadioGroup value={answer} onChange={handleChange} >
           <FormControlLabel value="yes" control={<Radio color="default" />} label="Yes" />

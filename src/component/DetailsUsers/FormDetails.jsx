@@ -28,7 +28,7 @@ const FormDetails = () => {
   function getStepContent (step) {
     switch (step) {
       case 0: return <UserDetails onNameChange={(name)=> setName(name)} onEmailChange={(email)=> setEmail(email)} onPhoneChange={(phone)=> setPhone(phone)} />;
-      case 1: return <ControlDetail  />  ;      
+      case 1: return <ControlDetail />  ;      
       case 2: return <Payment/>; 
       default: return ''
     }    
@@ -55,12 +55,16 @@ const FormDetails = () => {
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
               <StepContent>
-                <>{getStepContent(index)}</>
+                <>{getStepContent(index)}
+                <li >Your name is: <a className='heading2'>{name}</a></li>
+                <li >Your email is: <a className='heading2'>{email}</a></li>
+                <li >Your phone is: <a className='heading2'>{phone}</a></li></>
                 <>
                   <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}> Back </Button>                   
                   <Button variant="contained" value='next' color="primary" disabled={!name || !email || !phone } onClick={handleNext} className={classes.button} >
                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}     
                   </Button>
+                  
                 </>
               </StepContent>
             </Step>

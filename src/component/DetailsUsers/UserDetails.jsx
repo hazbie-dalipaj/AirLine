@@ -38,10 +38,6 @@ const UserDetails = (props) => {
                     <input type='text' placeholder='Email Address*' name='email' value={email} onChange={hadleChange} required/>
                     <input type='tel' placeholder='Phone*' name='phone' value={phone} onChange={hadleChange} required/>
                 </form>
-                <ol className='heading'>Please controll your details to payment later</ol> 
-                <li >Your name is: <a className='heading2'>{props.name}</a></li>
-                <li >Your email is: <a className='heading2'>{email}</a></li>
-                <li >Your phone is: <a className='heading2'>{phone}</a></li>
             </>
         ); 
 }
