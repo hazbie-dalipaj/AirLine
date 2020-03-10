@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './register.css';
+import './Register.css';
 import { Link } from 'react-router-dom'
-import FormInput from '../form.input/form.input';
+import FormInput from '../FormInput/FormInput';
 import { auth, createUserProfileDocument, signInWithGoogle } from '../../firebase/firebase.utils';
 
 const Register = () => {

@@ -1,7 +1,6 @@
 import React from 'react';
-import './card.css';
+import './Card.css';
 import 'tachyons';
-import './card.css';
 import { Link } from 'react-router-dom';
 
 const Card = ({ name, companyUrl }) => {

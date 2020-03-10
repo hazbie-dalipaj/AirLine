@@ -2,30 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Switch } from 'react-router-dom';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import ViewComponent from './route.component/view.component';
-import Footer from './component/footer/footer'
-import ViewHeader from './component/header/view.header';
+import ViewComponent from './RouteComponent/ViewComponent';
+import Footer from './component/Footer/Footer';
+import ViewHeader from './component/Header/View';
 import Particles from 'react-particles-js';
+import * as C from './constants'
 
 const App = () => {
-  const particlesOptions = {
-    particles: {
-      line_linked: {
-        shadow: {
-          enable: true,
-          color: '#0a0a0a',
-          blur: 5
-        }
-      },
-      number: {
-        value: 40,
-        density: {
-          enable: true,
-          value_area: 800
-        }
-      },
-    }
-  }
   const [currentUser, setCurrentUser] = useState(null);
   let unsubscribeFormAuthEvent = null;
   
@@ -48,7 +31,7 @@ const App = () => {
   return (
     <div className = "App">
       <ViewHeader currentUser = {currentUser} />
-      <Particles className='particales' params={particlesOptions} />
+      <Particles className='particales' params={C.PARTICLES_OPTIONS} />
       <Switch>
         <ViewComponent />
       </Switch>
