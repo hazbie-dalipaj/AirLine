@@ -2,8 +2,7 @@ import React from 'react'
 import './UserDetails.css';
 const UserDetails = (props) => {
 
-    const {name, email, phone, setName, setEmail, setPhone} = props;
-
+    const {name, email, phone} = props;
     const handleSubmit = async event => {
         event.preventDefault();
     }

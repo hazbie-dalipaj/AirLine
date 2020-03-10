@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import UserDetails from './UserDetails';
 import ControlDetail from './ControlDetails';
 import Payment from '../Payment/Payment';
+import * as C from './FunctionStep';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -22,20 +23,19 @@ const FormDetails = () => {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [phone, setPhone] = useState(null);
-  function getSteps() {
-    return ['Complete your details', 'Control you details', 'Payment'];
-  }
+  // function getSteps() {
+  //   return ['Complete your details', 'Control you details', 'Payment'];
+  // }
   function getStepContent (step) {
     switch (step) {
       case 0: return <UserDetails onNameChange={(name)=> setName(name)} onEmailChange={(email)=> setEmail(email)} onPhoneChange={(phone)=> setPhone(phone)} />;
-      case 1: return <ControlDetail />  ;      
-      case 2: return <Payment/>; 
-      default: return ''
+      case 1: return <ControlDetail />;      
+      case 2: return <Payment />; 
+      default: return null;
     }    
   }
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-  const steps = getSteps();
 
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
@@ -51,26 +51,27 @@ const FormDetails = () => {
       <div className={classes.root}>
         <h4 className='title'>Please, complete all fields</h4> <hr />
         <Stepper activeStep={activeStep} orientation="vertical">
-          {steps.map((label, index) => (
+          {C.getSteps().map((label, index) => (
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
               <StepContent>
-                <>{getStepContent(index)}
+                <>
+                {getStepContent(index)}
                 <li >Your name is: <a className='heading2'>{name}</a></li>
                 <li >Your email is: <a className='heading2'>{email}</a></li>
-                <li >Your phone is: <a className='heading2'>{phone}</a></li></>
+                <li >Your phone is: <a className='heading2'>{phone}</a></li>
+                </>
                 <>
                   <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}> Back </Button>                   
                   <Button variant="contained" value='next' color="primary" disabled={!name || !email || !phone } onClick={handleNext} className={classes.button} >
-                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}     
+                    {activeStep === C.getSteps().length - 1 ? 'Finish' : 'Next'}     
                   </Button>
-                  
                 </>
               </StepContent>
             </Step>
           ))}
         </Stepper>
-        {activeStep === steps.length && (
+        {activeStep === C.getSteps().length && (
           <Paper square elevation={0} className={classes.resetContainer}>
             <Typography> Your payment is complete! Nice Trip!
             </Typography>
