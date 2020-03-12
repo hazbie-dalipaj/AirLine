@@ -14,18 +14,13 @@ const ControlDetail = () => {
 
   return(
     <div>
-      <ol className='heading'>Are correct your detail?</ol>
-      <ol className='heading'>Please controll your details to payment later</ol>  
+      <ol className='heading'>Are correct your detail?</ol> 
       <FormControl >
         <RadioGroup value={answer} onChange={handleChange} >
           <FormControlLabel value="yes" control={<Radio color="default" />} label="Yes" />
-        </RadioGroup>
-      </FormControl>       
-      <FormControl >
-        <RadioGroup value={answer} onChange={handleChange} >
           <FormControlLabel value="no" control={<Radio color="default" />} label="No" />
         </RadioGroup>
-      </FormControl>
+      </FormControl>       
       {answer==='yes' && <ol>Continue to next step</ol>}
       {answer==='no' && <ol>Please, rewrite your details on setp 1</ol>}
     </div>

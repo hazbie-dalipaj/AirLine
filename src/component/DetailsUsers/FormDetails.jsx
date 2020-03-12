@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -7,9 +7,6 @@ import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import UserDetails from './UserDetails';
-import ControlDetail from './ControlDetails';
-import Payment from '../payment/payment';
 import * as C from './FunctionStep';
 
 const useStyles = makeStyles(theme => ({
@@ -19,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const FormDetails = () => {
+const FormDetails = (props) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -42,7 +39,7 @@ const FormDetails = () => {
                 {C.getStepContent(index)}
                 <>
                   <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}> Back </Button>                   
-                  <Button variant="contained" value='next' color="primary"  onClick={handleNext} className={classes.button} >
+                  <Button variant="contained" value='next' color="primary"   onClick={handleNext} className={classes.button} >
                     {activeStep === C.getSteps().length - 1 ? 'Finish' : 'Next'}     
                   </Button>
                 </>

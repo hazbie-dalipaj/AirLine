@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import UserDetails from './UserDetails';
 import ControlDetail from './ControlDetails';
 import Payment from '../payment/payment';
