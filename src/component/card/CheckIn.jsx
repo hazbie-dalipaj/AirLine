@@ -2,19 +2,10 @@ import React, { useState } from 'react';
 import CardForm from './Form';
 import { Link } from 'react-router-dom';
 import ParticleField from 'react-particles-webgl';
+import * as C from './particle';
 
 const CardCheckIn = () => {
-  const config = {
-    lines: {
-      minDistance: 80,
-    },
-    particles: {
-      transparency: 0.6,
-      shape: 'circle',
-      count: 200,
-      maxSize: 50,
-    },
-  };
+
   const [from, setFrom] = useState(null);
   const [to, setTo] = useState(null);
   const [company, setCompany] = useState(null);
@@ -51,7 +42,7 @@ const CardCheckIn = () => {
         <CardForm onSetValue={onSetValue}  />
         <Link to={url3}><button disabled={!from || !to || !company } className='search-flights grow br4'>Search Flights</button></Link>
       </form>
-      <ParticleField config={config} />
+      <ParticleField config={C.CONFIG_PARTICLES} />
     </div>
   )
 }
