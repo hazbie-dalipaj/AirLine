@@ -9,7 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import UserDetails from './UserDetails';
 import ControlDetail from './ControlDetails';
-import Payment from '../Payment/Payment';
+import Payment from '../payment/payment';
 import * as C from './FunctionStep';
 
 const useStyles = makeStyles(theme => ({
@@ -20,20 +20,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const FormDetails = () => {
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [phone, setPhone] = useState(null);
-  // function getSteps() {
-  //   return ['Complete your details', 'Control you details', 'Payment'];
-  // }
-  function getStepContent (step) {
-    switch (step) {
-      case 0: return <UserDetails onNameChange={(name)=> setName(name)} onEmailChange={(email)=> setEmail(email)} onPhoneChange={(phone)=> setPhone(phone)} />;
-      case 1: return <ControlDetail />;      
-      case 2: return <Payment />; 
-      default: return null;
-    }    
-  }
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -43,9 +29,7 @@ const FormDetails = () => {
   const handleBack = () => {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   };
-  console.log(`name is ${name}`);
-  console.log(`email is ${email}`);
-  console.log(`phone is ${phone}`);
+
   return (
     <>
       <div className={classes.root}>
@@ -55,15 +39,10 @@ const FormDetails = () => {
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
               <StepContent>
-                <>
-                {getStepContent(index)}
-                <li >Your name is: <a className='heading2'>{name}</a></li>
-                <li >Your email is: <a className='heading2'>{email}</a></li>
-                <li >Your phone is: <a className='heading2'>{phone}</a></li>
-                </>
+                {C.getStepContent(index)}
                 <>
                   <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}> Back </Button>                   
-                  <Button variant="contained" value='next' color="primary" disabled={!name || !email || !phone } onClick={handleNext} className={classes.button} >
+                  <Button variant="contained" value='next' color="primary"  onClick={handleNext} className={classes.button} >
                     {activeStep === C.getSteps().length - 1 ? 'Finish' : 'Next'}     
                   </Button>
                 </>
