@@ -4,15 +4,16 @@ import './Preview.scss';
 import Parameters from './Parametrs';
 import SelectParam from './select.param';
 
-const Preview = ({ from, to, departure, company, returnTime, cabine }) => {
+const Preview = ({ from, to, departure, company, returnTime, cabine, price }) => {
     let availableRoutes = [];
     for (const flight of FLIGHTS_DATA) {
         const routes = flight.routes;
         for (const route of routes) {
             if (
-                route.returnTime == returnTime
-                || route.departure === departure
+                route.departure === departure
+                || route.returnTime === returnTime
                 || (route.from === from && route.to === to)
+
             ) {
                 availableRoutes.push(route);
             }
@@ -20,24 +21,42 @@ const Preview = ({ from, to, departure, company, returnTime, cabine }) => {
     }
 
     console.log('availableRoutes', availableRoutes);
-    console.log('props', FLIGHTS_DATA, from, to, departure, returnTime, cabine, company);
+    console.log('props', FLIGHTS_DATA, from, to, departure, returnTime, cabine, company, price);
     return (
-        availableRoutes.length > 0
+        <div>
+            {availableRoutes.length > 0
             ? <div className='checkout-page'>
                 <div className='header'>
-                    <Parameters
+                    {returnTime
+                    ?
+                    <Parameters 
+                        availableRoutes={availableRoutes}
+                        from={from}
+                        to={to}
+                        departure={departure}                      
+                        returnTime={returnTime}
+                        cabine={cabine}
+                        company={company}
+                        price={price}
+                    />
+                    : 
+                    <Parameters 
                         availableRoutes={availableRoutes}
                         from={from}
                         to={to}
                         departure={departure}
-                        returnTime={returnTime}
-                        company={company}
                         cabine={cabine}
+                        company={company}
+                        price={price}
                     />
+                    }
+                    
                     <SelectParam />
                 </div>
             </div>
-            : null 
+            : null}
+            
+        </div>
     );
 }
 export default Preview;

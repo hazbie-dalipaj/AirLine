@@ -16,14 +16,35 @@ const ViewHeader = ({ currentUser }) => {
                             {RouteHeader[0].icon} {RouteHeader[0].name}
                         </button>
                     </Link>
-                    <Link to={RouteHeader[1].path}><button className='br3 hButton'>{RouteHeader[1].icon} {RouteHeader[1].name}</button></Link>
-                    <Link to={RouteHeader[2].path}><button className='br3 hButton'>{RouteHeader[2].icon} {RouteHeader[2].name}</button></Link>
+
+                    <Link 
+                        to={RouteHeader[1].path}
+                    >
+                        <button className='br3 hButton'>
+                            {RouteHeader[1].icon} {RouteHeader[1].name}
+                        </button>
+                    </Link>
+
+                    <Link
+                     to={RouteHeader[2].path}>
+                         <button className='br3 hButton'>
+                             {RouteHeader[2].icon} {RouteHeader[2].name}
+                             </button>
+                    </Link>
+
                     {currentUser ?
                         <div onClick={() => auth.signOut()}>
-                            <button className='br3 signoutButton'>{RouteHeader[4].icon} {RouteHeader[4].name}</button>
+                            <button className='br3 signoutButton'>
+                                {RouteHeader[4].icon} {RouteHeader[4].name}
+                        </button>
                         </div>
                         :
-                        <Link to={RouteHeader[3].path}><button className='br3 hButton'>{RouteHeader[3].icon} {RouteHeader[3].name}</button></Link>
+                        <Link 
+                         to={RouteHeader[3].path}>
+                            <button className='br3 hButton'>
+                                {RouteHeader[3].icon} {RouteHeader[3].name}
+                            </button>
+                        </Link>
                     }
                 </div>
             )

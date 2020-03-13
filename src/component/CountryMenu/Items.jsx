@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Items.css';
 
 const Items = ({ title, imageUrl, url, urlcountry }) => {

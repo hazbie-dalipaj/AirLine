@@ -5,7 +5,6 @@ import ParticleField from 'react-particles-webgl';
 import * as C from './particle';
 
 const CardCheckIn = () => {
-
   const [from, setFrom] = useState(null);
   const [to, setTo] = useState(null);
   const [company, setCompany] = useState(null);

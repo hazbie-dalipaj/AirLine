@@ -33,8 +33,19 @@ const HoverRating = () => {
   return (
     <div className = 'tc rate'>
       <ol className='heading'>Please rate the app</ol>
-        <Rating name="hover-feedback" value={rating} size="large" max={10} onChange={(event, newRating) => { setRating(newRating); }} />
-        {rating !== null && <Box ml={2}>{labels[hover !== -1 ? hover : rating]} </Box>}
+        <Rating
+          name="hover-feedback" 
+          value={rating} 
+          size="large" 
+          max={10} 
+          onChange={(event, newRating) => { setRating(newRating); }}
+        />
+        {
+          rating !== null 
+          && 
+          <Box ml={2}>
+            {labels[hover !== -1 ? hover : rating]}
+          </Box>}
       <div className='rating'> {rating} / 10  </div>
     </div>
   );

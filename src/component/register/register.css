@@ -13,6 +13,6 @@ input[type=tel] {
 }
 
 .row{
-display: flex;
-box-sizing: border-box;
+  display: flex;
+  box-sizing: border-box;
 }

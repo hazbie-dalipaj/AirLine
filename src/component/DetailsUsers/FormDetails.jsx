@@ -5,7 +5,6 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import * as C from './FunctionStep';
 
@@ -48,10 +47,8 @@ const FormDetails = (props) => {
           ))}
         </Stepper>
         {activeStep === C.getSteps().length && (
-          <Paper square elevation={0} className={classes.resetContainer}>
             <Typography> Your payment is complete! Nice Trip!
-            </Typography>
-          </Paper>)}
+            </Typography>)}
       </div>
     </>
   );
