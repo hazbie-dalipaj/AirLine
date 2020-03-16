@@ -9,3 +9,4 @@ export const CONFIG_PARTICLES = {
       maxSize: 50,
     },
   };
+  

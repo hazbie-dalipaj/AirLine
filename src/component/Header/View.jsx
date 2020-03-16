@@ -50,6 +50,9 @@ const ViewHeader = ({ currentUser }) => {
             )
         }} />
     })
-    return (<div className='header'>{routesHeader}</div>)
+    return (
+         <div className='header'>
+             {routesHeader}
+        </div>)
 }
 export default ViewHeader;

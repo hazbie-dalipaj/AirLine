@@ -27,9 +27,11 @@ const useStateWithLocalStorage = localStorageKey => {
 };
 
 const HoverRating = () => {
+  
   const [rating, setRating] = useStateWithLocalStorage(null);
   const [hover, setHover] = useState(-1);
   console.log(`You rating: ${rating}`);
+
   return (
     <div className = 'tc rate'>
       <ol className='heading'>Please rate the app</ol>

@@ -43,9 +43,18 @@ const choices = [
 
 const Directory = () => 
     <div className='directory'>
+
       {choices.map(({title, imageUrl, id, url}) => (
-        <Items key={id} title={title} imageUrl={imageUrl} url={url} > </Items>
-      ))}
+        <Items 
+          key={id} 
+          title={title} 
+          imageUrl={imageUrl} 
+          url={url} 
+        >
+        </Items>
+      ))
+      }
+
     </div>
     
 export default Directory;
