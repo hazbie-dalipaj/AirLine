@@ -1,7 +1,7 @@
 import React from 'react';
 import UserDetails from './UserDetails';
 import ControlDetail from './ControlDetails';
-import Payment from '../payment/payment';
+import Payment from '../Payment/Payment';
 
 export function getSteps() {
     return ['Complete your details', 'Control you details', 'Payment'];

@@ -1,5 +1,5 @@
 import React from 'react';
-import './card.css';
+import './Card.css';
 import 'tachyons';
 import { Link } from 'react-router-dom';
 

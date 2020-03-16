@@ -2,7 +2,7 @@ import React from 'react';
 import FLIGHTS_DATA from '../../flights_data';
 import './Preview.scss';
 import Parameters from './Parametrs';
-import SelectParam from './select.param';
+import SelectParam from './SelectParam';
 
 const Preview = ({ from, to, departure, company, returnTime, cabine, price }) => {
     let availableRoutes = [];

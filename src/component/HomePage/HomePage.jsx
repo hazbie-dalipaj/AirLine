@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { company } from '../card/company';
-import List from '../card/List';
+import { company } from '../Card/company';
+import List from '../Card/List';
 import SearchCard from '../Search/SearchCard';
 import './HomePage.css';
 

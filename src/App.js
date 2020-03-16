@@ -3,7 +3,7 @@ import './App.css';
 import { Switch } from 'react-router-dom';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import ViewComponent from './RouteComponent/ViewComponent';
-import Footer from './component/footer/footer';
+import Footer from './component/Footer/Footer';
 import ViewHeader from './component/Header/View';
 import Particles from 'react-particles-js';
 import * as C from './constants'

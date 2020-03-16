@@ -3,11 +3,11 @@ import SvgIcon from '@material-ui/core/SvgIcon';
 import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import StarIcon from '@material-ui/icons/Star';
 import PersonIcon from '@material-ui/icons/Person';
-import CardCheckIn from '../card/CheckIn';
+import CardCheckIn from '../Card/CheckIn';
 import FormDetails from '../DetailsUsers/FormDetails';
 import ViewFlights from '../flights/ViewFlights';
 import HoverRating from '../Rating/Hover';
-import Register from '../register/register';
+import Register from '../Register/Register';
 
 function HomeIcon(props) {
     return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './signin.css'
+import './Signin.css'
 import { Link } from 'react-router-dom';
 import FormInput from '../FormInput/FormInput';
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
